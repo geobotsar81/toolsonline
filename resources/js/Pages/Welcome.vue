@@ -22,6 +22,10 @@ defineProps({
             </div>
         </div>
 
-        <div class="container"></div>
+        <div class="container py-6">
+            <div class="grid grid-cols-12">
+                <div class="col-span-1">Calculator 1</div>
+            </div>
+        </div>
     </AppLayout>
 </template>

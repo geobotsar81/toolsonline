@@ -1,6 +1,6 @@
 <script setup>
 import AppLogo from "@/Shared/AppLogo.vue";
-import { Head, Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/inertia-vue3";
 </script>
 <template>
     <header>
