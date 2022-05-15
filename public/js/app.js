@@ -28033,10 +28033,10 @@ var _hoisted_2 = {
   "class": "container py-12"
 };
 var _hoisted_3 = {
-  "class": "grid grid-cols-12 pb-6"
+  "class": "grid grid-cols-12 pb-6 text-center sm:text-left"
 };
 var _hoisted_4 = {
-  "class": "col-span-3"
+  "class": "col-span-12 sm:col-span-6 md:col-span-3 mb-4"
 };
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
@@ -28054,7 +28054,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Terms & Conditions");
 
 var _hoisted_10 = {
-  "class": "col-span-3"
+  "class": "col-span-12 sm:col-span-6 md:col-span-3 mb-4"
 };
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
@@ -28072,7 +28072,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Terms & Conditions");
 
 var _hoisted_16 = {
-  "class": "col-span-3"
+  "class": "col-span-12 sm:col-span-6 md:col-span-3 mb-4"
 };
 
 var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
@@ -28090,7 +28090,7 @@ var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Terms & Conditions");
 
 var _hoisted_22 = {
-  "class": "col-span-3"
+  "class": "col-span-12 sm:col-span-6 md:col-span-3 mb-4"
 };
 
 var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
@@ -28110,9 +28110,9 @@ var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "grid grid-cols-12 border-t-solid border-t border-t-gray-300 py-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-6"
+  "class": "col-span-12 md:col-span-6 text-center md:text-left"
 }, "Made with love with Laravel & InertiaJs | Terms & Conditions"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-6 text-right"
+  "class": "col-span-12 md:col-span-6 text-center md:text-right"
 }, "© 2022 FreeOnlineTools")], -1
 /* HOISTED */
 );
@@ -28338,10 +28338,10 @@ var _hoisted_3 = {
   "class": "grid grid-cols-12"
 };
 var _hoisted_4 = {
-  "class": "col-span-3"
+  "class": "col-span-12 md:col-span-3 text-center md:text-left"
 };
 var _hoisted_5 = {
-  "class": "col-span-9 text-right py-2"
+  "class": "col-span-12 md:col-span-9 text-center md:text-right py-2"
 };
 var _hoisted_6 = {
   "class": "inline-block px-3"
