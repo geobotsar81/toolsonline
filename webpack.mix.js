@@ -22,9 +22,8 @@ mix.js("resources/js/app.js", "public/js")
     });
 
 mix.browserSync({
-    proxy: "172.21.0.8172.20.0.4",
+    proxy: "nginx",
     host: "localhost",
-    notify: false,
 });
 
 if (mix.inProduction()) {
