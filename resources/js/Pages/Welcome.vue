@@ -1,6 +1,8 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import AppCard from "@/Shared/AppCard.vue";
+import AppH2 from "@/Shared/AppH2.vue";
+import AppSubtitle from "@/Shared/AppSubtitle.vue";
 
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import { computed } from "vue";
@@ -25,7 +27,14 @@ defineProps({
         </div>
 
         <div class="container py-8">
-            <div class="grid grid-cols-12 gap-4">
+            <div class="text-center"><AppH2>Services</AppH2></div>
+            <div class="grid grid-cols-12 text-center">
+                <div class="col-span-12 md:col-span-8 md:col-start-3">
+                    <AppSubtitle>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Eiusmod tempor incididunt ut labore.</AppSubtitle>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 gap-4 mt-8">
                 <div class="col-span-12 md:col-span-6 lg:col-span-4">
                     <AppCard icon="fal fa-calculator-alt" title="Cost Calculations" content="One of your services which tells about price calculations."> </AppCard>
                 </div>
