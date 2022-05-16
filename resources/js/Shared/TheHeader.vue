@@ -19,7 +19,7 @@ import { Link } from "@inertiajs/inertia-vue3";
                                 <Link class="hover:text-red" :href="route('dashboard')"> Calculators </Link>
                             </li>
                             <li class="inline-block px-3">
-                                <Link class="hover:text-red" :href="route('dashboard')"> Contact </Link>
+                                <Link class="hover:text-red" :href="route('contact.show')"> Contact </Link>
                             </li>
                         </ul>
                     </div>
