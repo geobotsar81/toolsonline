@@ -53,7 +53,7 @@ import AppH5 from "@/Shared/AppH5.vue";
                 </div>
             </div>
             <div class="grid grid-cols-12 border-t-solid border-t border-t-gray-300 py-6">
-                <div class="col-span-12 md:col-span-6 text-center md:text-left">Made with love with Laravel & InertiaJs | Terms & Conditions</div>
+                <div class="col-span-12 md:col-span-6 text-center md:text-left">Made with <i class="fas fa-heart"></i> using <i class="fab fa-laravel"></i> and <i class="fab fa-vuejs"></i></div>
                 <div class="col-span-12 md:col-span-6 text-center md:text-right">© 2022 FreeOnlineTools</div>
             </div>
         </div>
