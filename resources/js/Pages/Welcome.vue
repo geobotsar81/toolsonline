@@ -1,5 +1,7 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
+import AppCard from "@/Shared/AppCard.vue";
+
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import { computed } from "vue";
 
@@ -22,9 +24,27 @@ defineProps({
             </div>
         </div>
 
-        <div class="container py-6">
-            <div class="grid grid-cols-12">
-                <div class="col-span-1">Calculator 1</div>
+        <div class="container py-8">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                    <AppCard icon="fal fa-calculator-alt" title="Cost Calculations" content="One of your services which tells about price calculations."> </AppCard>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                    <AppCard icon="fal fa-watch-calculator" title="Order Wizard" content="One of your services which tells about price calculations."> </AppCard>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                    <AppCard icon="fal fa-abacus" title="Email Summary" content="One of your services which tells about price calculations."> </AppCard>
+                </div>
+
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                    <AppCard icon="fal fa-calculator-alt" title="Cost Calculations" content="One of your services which tells about price calculations."> </AppCard>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                    <AppCard icon="fal fa-watch-calculator" title="Order Wizard" content="One of your services which tells about price calculations."> </AppCard>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                    <AppCard icon="fal fa-abacus" title="Email Summary" content="One of your services which tells about price calculations."> </AppCard>
+                </div>
             </div>
         </div>
     </AppLayout>

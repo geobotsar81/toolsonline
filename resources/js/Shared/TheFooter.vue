@@ -1,52 +1,53 @@
 <script setup>
-import { Link } from "@inertiajs/inertia-vue3";
+import AppLink from "@/Shared/AppLink.vue";
+import AppH5 from "@/Shared/AppH5.vue";
 </script>
 <template>
     <footer class="border-t-solid border-t border-t-gray-300">
         <div class="container py-12">
             <div class="grid grid-cols-12 pb-6 text-center sm:text-left">
                 <div class="col-span-12 sm:col-span-6 md:col-span-3 mb-4">
-                    <div><h3 class="text-xl font-bold">Menu Items</h3></div>
+                    <div><AppH5 class="mb-2">Menu Items</AppH5></div>
                     <div>
                         <ul>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Home</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">FAQ</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Contact</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Terms & Conditions</Link></li>
+                            <li><AppLink url="dashboard" title="Home"></AppLink></li>
+                            <li><AppLink url="dashboard" title="FAQ"></AppLink></li>
+                            <li><AppLink url="dashboard" title="Contact"></AppLink></li>
+                            <li><AppLink url="dashboard" title="Terms & Conditions"></AppLink></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-span-12 sm:col-span-6 md:col-span-3 mb-4">
-                    <div><h3 class="text-xl font-bold">Calculators</h3></div>
+                    <div><AppH5 class="mb-2">Calculators</AppH5></div>
                     <div>
                         <ul>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Home</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">FAQ</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Contact</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Terms & Conditions</Link></li>
+                            <li><AppLink url="dashboard" title="Home"></AppLink></li>
+                            <li><AppLink url="dashboard" title="FAQ"></AppLink></li>
+                            <li><AppLink url="dashboard" title="Contact"></AppLink></li>
+                            <li><AppLink url="dashboard" title="Terms & Conditions"></AppLink></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-span-12 sm:col-span-6 md:col-span-3 mb-4">
-                    <div><h3 class="text-xl font-bold">Contacts</h3></div>
+                    <div><AppH5 class="mb-2">Contacts</AppH5></div>
                     <div>
                         <ul>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Home</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">FAQ</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Contact</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Terms & Conditions</Link></li>
+                            <li><AppLink url="dashboard" title="Home"></AppLink></li>
+                            <li><AppLink url="dashboard" title="FAQ"></AppLink></li>
+                            <li><AppLink url="dashboard" title="Contact"></AppLink></li>
+                            <li><AppLink url="dashboard" title="Terms & Conditions"></AppLink></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-span-12 sm:col-span-6 md:col-span-3 mb-4">
-                    <div><h3 class="text-xl font-bold">Follow us</h3></div>
+                    <div><AppH5 class="mb-2">Follow us</AppH5></div>
                     <div>
                         <ul>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Home</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">FAQ</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Contact</Link></li>
-                            <li><Link class="hover:text-red" :href="route('dashboard')">Terms & Conditions</Link></li>
+                            <li><AppLink url="dashboard" title="Home"></AppLink></li>
+                            <li><AppLink url="dashboard" title="FAQ"></AppLink></li>
+                            <li><AppLink url="dashboard" title="Contact"></AppLink></li>
+                            <li><AppLink url="dashboard" title="Terms & Conditions"></AppLink></li>
                         </ul>
                     </div>
                 </div>
