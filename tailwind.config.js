@@ -7,8 +7,8 @@ module.exports = {
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
         "./resources/js/**/*.vue",
+        "./node_modules/tw-elements/dist/js/**/*.js",
     ],
-
     theme: {
         extend: {
             colors: {
@@ -18,7 +18,9 @@ module.exports = {
                     300: "#ddd",
                     900: "#555",
                 },
-                red: "#ff7b79",
+                red: {
+                    500: "#ff7b79",
+                },
                 blue: "#3f4079",
                 white: "#fff",
             },
@@ -53,5 +55,6 @@ module.exports = {
         },
         require("@tailwindcss/forms"),
         require("@tailwindcss/typography"),
+        require("tw-elements/dist/plugin"),
     ],
 };

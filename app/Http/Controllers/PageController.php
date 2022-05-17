@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Mail\ContactFormMail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 
@@ -50,13 +53,11 @@ class PageController extends Controller
         $contact = [
             "fullname" => $request["contactName"],
             "email" => $request["contactEmail"],
-            "subject" => "Contact Form email",
+            "subject" => "Email from Contact Form",
             "message" => $request["contactMessage"],
         ];
 
-        Mail::to("info@laramotely.com")->send(new ContactFormMail($contact));
-        return redirect()
-            ->route("contact.show")
-            ->with("status", "Your message has been sent");
+        Mail::to(config("mail.from.address"))->send(new ContactFormMail($contact));
+        return redirect()->back();
     }
 }

@@ -15,8 +15,6 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get("/", function () {});
-
 Route::get("/", [PageController::class, "showHome"])->name("home");
 Route::get("/contact", [PageController::class, "showContact"])->name("contact.show");
 Route::post("/contact", [PageController::class, "sendMail"])->name("contact.send");

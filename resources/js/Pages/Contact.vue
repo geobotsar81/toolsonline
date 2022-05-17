@@ -1,11 +1,12 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
-
 import AppH1 from "@/Shared/AppH1.vue";
 import AppSubtitle from "@/Shared/AppSubtitle.vue";
 import AppButtonPrimary from "@/Shared/AppButtonPrimary";
 import AppInput from "@/Shared/Form/AppInput";
 import AppTextarea from "@/Shared/Form/AppTextarea";
+import AppError from "@/Shared/Form/AppError";
+import AppSuccess from "@/Shared/Form/AppSuccess";
 
 import { usePage, useForm } from "@inertiajs/inertia-vue3";
 import { ref, computed } from "vue";
@@ -51,39 +52,39 @@ function submitForm() {
                         <div class="grid grid-cols-12">
                             <div class="col-span-12 text-center">
                                 <input type="hidden" name="honeypot" v-model="form.honeypot" />
-                                <div v-if="form.errors.honeypot" class="formError">
+                                <AppError v-if="form.errors.honeypot" class="text-left">
                                     {{ form.errors.honeypot }}
-                                </div>
+                                </AppError>
                             </div>
 
                             <div class="col-span-12 text-center mt-2">
-                                <AppInput placeholder="Name" name="contactName" v-model="form.contactName" />
-                                <div v-if="form.errors.contactName" class="formError">
+                                <AppInput placeholder="Name" name="form.contactName" v-model="form.contactName" />
+                                <AppError v-if="form.errors.contactName" class="text-left">
                                     {{ form.errors.contactName }}
-                                </div>
+                                </AppError>
                             </div>
 
                             <div class="col-span-12 text-center mt-2">
                                 <AppInput placeholder="Email" name="contactEmail" v-model="form.contactEmail" />
-                                <div v-if="form.errors.contactEmail" class="formError">
+                                <AppError v-if="form.errors.contactEmail" class="text-left">
                                     {{ form.errors.contactEmail }}
-                                </div>
+                                </AppError>
                             </div>
 
                             <div class="col-span-12 text-center mt-2">
                                 <AppTextarea placeholder="Message" name="contactMessage" v-model="form.contactMessage" />
-                                <div v-if="form.errors.contactMessage" class="formError">
+                                <AppError v-if="form.errors.contactMessage" class="text-left">
                                     {{ form.errors.contactMessage }}
-                                </div>
+                                </AppError>
                             </div>
 
                             <div class="col-span-12 text-center mt-2">
                                 <AppButtonPrimary type="submit" class="buttonRed" v-if="!form.processing"> SEND </AppButtonPrimary>
-                                <img :src="publicUrl + '/assets/img/LoaderIcon.gif'" v-if="form.processing" />
+                                <img class="mx-auto" :src="publicUrl + '/assets/img/LoaderIcon.gif'" v-if="form.processing" />
                             </div>
 
-                            <div class="col-span-12 text-center" v-if="formSuccess">
-                                <div class="alert alert-success">Your message has been successfully sent!</div>
+                            <div class="col-span-12 text-center mt-2" v-if="formSuccess">
+                                <AppSuccess> Your message has been successfully sent! </AppSuccess>
                             </div>
                         </div>
                     </form>
