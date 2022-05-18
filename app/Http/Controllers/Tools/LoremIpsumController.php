@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tools;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 
 class LoremIpsumController extends Controller
@@ -17,8 +18,45 @@ class LoremIpsumController extends Controller
         ];
 
         $faker = \Faker\Factory::create();
-        $loremText = $faker->paragraph();
+
+        $loremText = [];
+        for ($i = 0; $i < 5; $i++) {
+            array_push($loremText, $faker->paragraph(7));
+        }
 
         return Inertia::render("Tools/LoremIpsum", ["pageMeta" => $page, "loremText" => $loremText])->withViewData($page);
+    }
+
+    public function generate(Request $request): JsonResponse
+    {
+        $request->validate([
+            "loremNumber" => "required|numeric",
+            "honeypot" => "present|max:0",
+        ]);
+
+        $faker = \Faker\Factory::create();
+
+        $loremType = $request["loremType"];
+        $loremNumber = $request["loremNumber"];
+
+        if ($loremType == "words") {
+            $loremText = $faker->words($loremNumber, true);
+        }
+
+        if ($loremType == "sentences") {
+            $loremText = $faker->sentences($loremNumber);
+        }
+
+        if ($loremType == "paragraphs") {
+            $loremText = [];
+
+            for ($i = 0; $i < $loremNumber; $i++) {
+                array_push($loremText, $faker->paragraph(7));
+            }
+        }
+
+        debug($loremText);
+
+        return response()->json(["loremText" => $loremText]);
     }
 }

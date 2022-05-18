@@ -24,6 +24,7 @@ Route::prefix("/tools")
     ->name("tools.")
     ->group(function () {
         Route::get("/lorem-ipsum-generator", [LoremIpsumController::class, "show"])->name("lorem-ipsum");
+        Route::post("/lorem-ipsum-generate", [LoremIpsumController::class, "generate"])->name("lorem-ipsum_generate");
     });
 
 Route::middleware(["auth:sanctum", config("jetstream.auth_session"), "verified"])->group(function () {
