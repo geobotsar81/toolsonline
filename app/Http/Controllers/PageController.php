@@ -14,12 +14,13 @@ class PageController extends Controller
 {
     public function showHome()
     {
-        return Inertia::render("Welcome", [
-            "canLogin" => Route::has("login"),
-            "canRegister" => Route::has("register"),
-            "laravelVersion" => Application::VERSION,
-            "phpVersion" => PHP_VERSION,
-        ]);
+        $page = [
+            "title" => "Welcome",
+            "description" => "FreeOnlineTools, the home of a variety of online tools",
+            "url" => route("contact.send"),
+        ];
+
+        return Inertia::render("Welcome", ["pageMeta" => $page])->withViewData($page);
     }
 
     public function showContact()
@@ -30,9 +31,7 @@ class PageController extends Controller
             "url" => route("contact.send"),
         ];
 
-        return Inertia::render("Contact", [
-            "page" => $page,
-        ])->withViewData($page);
+        return Inertia::render("Contact", ["pageMeta" => $page])->withViewData($page);
     }
 
     /**

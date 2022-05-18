@@ -41,6 +41,11 @@ class HandleInertiaRequests extends Middleware
             "publicUrl" => url("/"),
             "currentYear" => today()->format("Y"),
             "translations" => __("pages"),
+            "meta" => [
+                "title" => "Free Online Tools",
+                "description" => "Find a wide variety of online tools and calculators",
+                "ogImage" => asset("img/ogImage.jpg"),
+            ],
         ]);
     }
 }

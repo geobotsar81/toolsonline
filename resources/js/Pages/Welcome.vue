@@ -6,8 +6,10 @@ import AppSubtitle from "@/Shared/AppSubtitle.vue";
 
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import { computed } from "vue";
+import { usePage, useForm } from "@inertiajs/inertia-vue3";
 
 const publicUrl = computed(() => usePage().props.value.publicUrl);
+const pageMeta = computed(() => usePage().props.value.pageMeta);
 
 defineProps({
     canLogin: Boolean,
@@ -18,7 +20,7 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout title="Welcome">
+    <AppLayout :title="pageMeta.title" :description="pageMeta.description" :url="pageMeta.url">
         <div class="grid grid-cols-1 h-[26rem] bg-blue bg-[url('/assets/img/bg.svg')] bg-bottom text-center">
             <div class="col-span-1">
                 <h1 class="text-white text-4xl font-bold mt-14">Welcome to Free Online Tools</h1>

@@ -1,10 +1,13 @@
 <script setup>
 import { ref } from "vue";
 import { Inertia } from "@inertiajs/inertia";
+
 import TheHeader from "@/Shared/TheHeader.vue";
 import TheFooter from "@/Shared/TheFooter.vue";
 import TheMain from "@/Shared/TheMain.vue";
-import { Head, Link } from "@inertiajs/inertia-vue3";
+import TheHead from "@/Shared/TheHead";
+
+import { Link } from "@inertiajs/inertia-vue3";
 import JetApplicationMark from "@/Jetstream/ApplicationMark.vue";
 import JetBanner from "@/Jetstream/Banner.vue";
 import JetDropdown from "@/Jetstream/Dropdown.vue";
@@ -14,6 +17,8 @@ import JetResponsiveNavLink from "@/Jetstream/ResponsiveNavLink.vue";
 
 defineProps({
     title: String,
+    description: String,
+    url: String,
 });
 
 const showingNavigationDropdown = ref(false);
@@ -36,16 +41,14 @@ const logout = () => {
 </script>
 
 <template>
-    <v-app>
-        <Head :title="title" />
+    <TheHead :title="title" :description="description" :url="url"></TheHead>
 
-        <TheHeader></TheHeader>
+    <TheHeader></TheHeader>
 
-        <!-- Page Content -->
-        <TheMain>
-            <slot />
-        </TheMain>
+    <!-- Page Content -->
+    <TheMain>
+        <slot />
+    </TheMain>
 
-        <TheFooter></TheFooter>
-    </v-app>
+    <TheFooter></TheFooter>
 </template>

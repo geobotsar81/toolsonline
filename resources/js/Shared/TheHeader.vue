@@ -22,7 +22,14 @@ const logout = () => {
                                 <AppLink :url="route('home')"> Home </AppLink>
                             </li>
                             <li class="inline-block px-3">
-                                <AppLink :url="route('dashboard')"> Calculators </AppLink>
+                                <AppDropdown
+                                    >Calculators
+                                    <template v-slot:items>
+                                        <li class="px-3">
+                                            <AppLink :url="route('tools.lorem-ipsum')"> Lorem Ipsum Generator</AppLink>
+                                        </li>
+                                    </template>
+                                </AppDropdown>
                             </li>
                             <li class="inline-block px-3">
                                 <AppLink :url="route('contact.show')"> Contact </AppLink>
