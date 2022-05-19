@@ -2,10 +2,14 @@
 import { ref } from "vue";
 import { Inertia } from "@inertiajs/inertia";
 
+import { useMainStore } from "@/Stores/mainStore";
+import { storeToRefs } from "pinia";
+
 import TheHeader from "@/Shared/TheHeader.vue";
 import TheFooter from "@/Shared/TheFooter.vue";
 import TheMain from "@/Shared/TheMain.vue";
 import TheHead from "@/Shared/TheHead";
+import AppToast from "@/Shared/AppToast";
 
 import { Link } from "@inertiajs/inertia-vue3";
 import JetApplicationMark from "@/Jetstream/ApplicationMark.vue";
@@ -38,17 +42,24 @@ const switchToTeam = (team) => {
 const logout = () => {
     Inertia.post(route("logout"));
 };
+
+const mainStore = useMainStore();
+const { toastShow, toastMessage, toastType } = storeToRefs(mainStore);
 </script>
 
 <template>
-    <TheHead :title="title" :description="description" :url="url"></TheHead>
+    <div class="relative">
+        <TheHead :title="title" :description="description" :url="url"></TheHead>
 
-    <TheHeader></TheHeader>
+        <TheHeader></TheHeader>
 
-    <!-- Page Content -->
-    <TheMain>
-        <slot />
-    </TheMain>
+        <!-- Page Content -->
+        <TheMain>
+            <slot />
+        </TheMain>
 
-    <TheFooter></TheFooter>
+        <AppToast :type="toastType" :message="toastMessage" :show="toastShow"></AppToast>
+
+        <TheFooter></TheFooter>
+    </div>
 </template>

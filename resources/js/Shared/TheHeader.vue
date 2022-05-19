@@ -13,10 +13,10 @@ const logout = () => {
         <div class="container">
             <nav class="py-4">
                 <div class="grid grid-cols-12">
-                    <div class="col-span-12 md:col-span-3 text-center md:text-left">
+                    <div class="col-span-12 lg:col-span-3 text-center lg:text-left">
                         <AppLogo></AppLogo>
                     </div>
-                    <div class="col-span-12 md:col-span-9 text-center md:text-right py-2">
+                    <div class="col-span-12 lg:col-span-9 text-center lg:text-right py-2">
                         <ul>
                             <li class="inline-block px-3">
                                 <AppLink :url="route('home')"> Home </AppLink>

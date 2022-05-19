@@ -7,6 +7,7 @@ import AppInput from "@/Shared/Form/AppInput";
 import AppTextarea from "@/Shared/Form/AppTextarea";
 import AppError from "@/Shared/Form/AppError";
 import AppSuccess from "@/Shared/Form/AppSuccess";
+import AppLoader from "@/Shared/Form/AppLoader";
 
 import { usePage, useForm } from "@inertiajs/inertia-vue3";
 import { ref, computed } from "vue";
@@ -83,7 +84,7 @@ function submitForm() {
 
                             <div class="col-span-12 text-center mt-2">
                                 <AppButtonPrimary type="submit" class="buttonRed" v-if="!form.processing"> SEND </AppButtonPrimary>
-                                <img class="mx-auto" :src="publicUrl + '/assets/img/LoaderIcon.gif'" v-if="form.processing" />
+                                <AppLoader v-else />
                             </div>
 
                             <div class="col-span-12 text-center mt-2" v-if="formSuccess">

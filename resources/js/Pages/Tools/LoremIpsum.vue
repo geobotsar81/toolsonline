@@ -7,6 +7,8 @@ import AppInput from "@/Shared/Form/AppInput.vue";
 import AppError from "@/Shared/Form/AppError.vue";
 import AppSelect from "@/Shared/Form/AppSelect.vue";
 import AppButtonPrimary from "@/Shared/AppButtonPrimary.vue";
+import AppLoader from "@/Shared/Form/AppLoader";
+import { useMainStore } from "@/Stores/mainStore";
 
 import { ref, computed, onMounted } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
@@ -22,6 +24,7 @@ let errorMessage = ref(null);
 let processing = ref(false);
 
 const options = ["words", "sentences", "paragraphs"];
+const mainStore = useMainStore();
 
 onMounted(() => {
     generateLoremIpsum();
@@ -49,11 +52,31 @@ function generateLoremIpsum() {
                 const errors = error.response.data.errors;
                 errorMessage.value = "";
                 for (const [key, value] of Object.entries(errors)) {
-                    errorMessage.value += `${key}: ${value}`;
+                    errorMessage.value += `${value}`;
                 }
             }
-            processing.value = true;
+            processing.value = false;
+            mainStore.toastAppear("Could not generate lorem ipsum", "error");
         });
+}
+
+function copy() {
+    let text = "";
+
+    try {
+        if (Array.isArray(loremText.value)) {
+            loremText.value.forEach((element) => {
+                text = text + element + "\n\n";
+            });
+        } else {
+            text = loremText.value;
+        }
+        navigator.clipboard.writeText(text);
+
+        mainStore.toastAppear("Copied to clipboard!", "success");
+    } catch (error) {
+        mainStore.toastAppear("Could not copy content to clipboard", "error");
+    }
 }
 </script>
 
@@ -64,13 +87,13 @@ function generateLoremIpsum() {
                 <AppH1>{{ pageMeta.title }}</AppH1>
             </div>
             <div class="grid grid-cols-12 text-center">
-                <div class="col-span-12 md:col-span-10 md:col-start-1">
+                <div class="col-span-12 lg:col-span-10 lg:col-start-2">
                     <AppSubtitle>{{ pageMeta.description }}</AppSubtitle>
                 </div>
             </div>
 
             <div class="grid grid-cols-12 gap-4 mt-8">
-                <div class="col-span-12">
+                <div class="col-span-12 lg:col-span-10 lg:col-start-2">
                     <AppWhiteContainer>
                         <div class="p-6 bg-gray-100 border-b-2 border-gray-200 -mt-6 -ml-6 -mr-6 mb-4">
                             <div class="grid grid-cols-12 gap-x-2">
@@ -82,17 +105,18 @@ function generateLoremIpsum() {
                                 <div class="col-span-12">
                                     <input type="hidden" name="honeypot" v-model="honeypot" />
                                 </div>
-                                <div class="col-span-1">
+                                <div class="col-span-2">
                                     <AppInput placeholder="" name="loremNumber" v-model="loremNumber" />
                                 </div>
-                                <div class="col-span-2">
+                                <div class="col-span-3">
                                     <AppSelect :options="options" v-model="loremType" />
                                 </div>
                                 <div class="col-span-3">
-                                    <AppButtonPrimary v-if="!processing" @click.prevent="generateLoremIpsum">GENERATE</AppButtonPrimary>
+                                    <AppButtonPrimary v-if="!processing" @click="generateLoremIpsum">GENERATE</AppButtonPrimary>
+                                    <AppLoader v-else />
                                 </div>
-                                <div class="col-span-6 text-right">
-                                    <AppButtonPrimary><i class="fas fa-copy mr-2"></i> COPY</AppButtonPrimary>
+                                <div class="col-span-4 text-right">
+                                    <AppButtonPrimary @click="copy"><i class="fas fa-copy mr-2"></i> COPY</AppButtonPrimary>
                                 </div>
                             </div>
                         </div>
