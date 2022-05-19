@@ -16,12 +16,12 @@ import { usePage } from "@inertiajs/inertia-vue3";
 const publicUrl = computed(() => usePage().props.value.publicUrl);
 const pageMeta = computed(() => usePage().props.value.pageMeta);
 
-let loremNumber = ref(5);
-let loremType = ref("paragraphs");
-let loremText = ref("");
-let honeypot = ref(null);
-let errorMessage = ref(null);
-let processing = ref(false);
+const loremNumber = ref(5);
+const loremType = ref("paragraphs");
+const loremText = ref("");
+const honeypot = ref(null);
+const errorMessage = ref(null);
+const processing = ref(false);
 
 const options = ["words", "sentences", "paragraphs"];
 const mainStore = useMainStore();
@@ -34,15 +34,12 @@ function generateLoremIpsum() {
     errorMessage.value = "";
     processing.value = true;
 
-    axios({
-        method: "post",
-        url: route("tools.lorem-ipsum_generate"),
-        data: {
+    axios
+        .post(route("tools.lorem-ipsum_generate"), {
             loremNumber: loremNumber.value,
             loremType: loremType.value,
             honeypot: honeypot.value,
-        },
-    })
+        })
         .then((response) => {
             loremText.value = response.data.loremText;
             processing.value = false;
@@ -60,9 +57,8 @@ function generateLoremIpsum() {
         });
 }
 
-function copy() {
+function copyText() {
     let text = "";
-
     try {
         if (Array.isArray(loremText.value)) {
             loremText.value.forEach((element) => {
@@ -105,6 +101,8 @@ function copy() {
                                 <div class="col-span-12">
                                     <input type="hidden" name="honeypot" v-model="honeypot" />
                                 </div>
+                            </div>
+                            <div class="grid grid-cols-12 gap-x-2">
                                 <div class="col-span-2">
                                     <AppInput placeholder="" name="loremNumber" v-model="loremNumber" />
                                 </div>
@@ -112,11 +110,11 @@ function copy() {
                                     <AppSelect :options="options" v-model="loremType" />
                                 </div>
                                 <div class="col-span-3">
-                                    <AppButtonPrimary v-if="!processing" @click="generateLoremIpsum">GENERATE</AppButtonPrimary>
-                                    <AppLoader v-else />
+                                    <AppButtonPrimary v-if="!processing" @click="generateLoremIpsum" :disabled="processing">GENERATE</AppButtonPrimary>
+                                    <AppLoader v-else class="mx-auto mt-2" />
                                 </div>
                                 <div class="col-span-4 text-right">
-                                    <AppButtonPrimary @click="copy"><i class="fas fa-copy mr-2"></i> COPY</AppButtonPrimary>
+                                    <AppButtonPrimary v-if="!processing" @click.prevent="copyText"><i class="fas fa-copy mr-2" :disabled="copying"></i> COPY</AppButtonPrimary>
                                 </div>
                             </div>
                         </div>
