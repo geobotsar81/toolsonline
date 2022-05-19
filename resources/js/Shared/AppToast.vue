@@ -13,7 +13,7 @@ defineProps({
 });
 </script>
 <template>
-    <div class="fixed bottom-0 right-4 transition-all duration-500 translate-y-0" :class="show ? 'opacity-1 -translate-y-4' : 'opacity-0'">
+    <div class="fixed bottom-0 right-4 transition-all duration-500 translate-y-0" :class="show ? 'opacity-1 -translate-y-4' : 'opacity-0 translate-y-0'">
         <div
             v-if="type == 'success'"
             class="bg-green-500 shadow-lg mx-auto w-96 max-w-full text-md pointer-events-auto bg-clip-padding rounded-lg block mb-3"

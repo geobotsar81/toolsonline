@@ -14,7 +14,7 @@ class LoremIpsumController extends Controller
         $page = [
             "title" => "Lorem Ipsum Generator",
             "description" => "Generate unlimited and free Lorem Ipsum text for use in your graphic, print and web layouts and explore the origins, history and meaning of Lorem Ipsum.",
-            "url" => route("tools.lorem-ipsum"),
+            "url" => route("tools.lorem-ipsum.show"),
         ];
 
         $faker = \Faker\Factory::create();

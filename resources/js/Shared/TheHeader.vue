@@ -3,6 +3,7 @@ import { Inertia } from "@inertiajs/inertia";
 import AppLogo from "@/Shared/AppLogo.vue";
 import AppLink from "@/Shared/AppLink.vue";
 import AppDropdown from "@/Shared/AppDropdown.vue";
+import AppMegaMenu from "@/Shared/AppMegaMenu.vue";
 
 const logout = () => {
     Inertia.post(route("logout"));
@@ -10,8 +11,8 @@ const logout = () => {
 </script>
 <template>
     <header>
-        <div class="container">
-            <nav class="py-4">
+        <div class="container relative">
+            <nav class="py-4 navbar-expand-lg relative">
                 <div class="grid grid-cols-12">
                     <div class="col-span-12 lg:col-span-3 text-center lg:text-left">
                         <AppLogo></AppLogo>
@@ -22,14 +23,24 @@ const logout = () => {
                                 <AppLink :url="route('home')"> Home </AppLink>
                             </li>
                             <li class="inline-block px-3">
-                                <AppDropdown
-                                    >Calculators
+                                <AppMegaMenu
+                                    >Tools
                                     <template v-slot:items>
-                                        <li class="px-3">
-                                            <AppLink :url="route('tools.lorem-ipsum')"> Lorem Ipsum Generator</AppLink>
-                                        </li>
+                                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                            <div class="bg-white text-gray-600">
+                                                <AppLink :url="route('tools.lorem-ipsum.show')">Lorem Ipsum Generator</AppLink>
+                                            </div>
+                                            <div class="bg-white text-gray-600">
+                                                <div class="font-bold text-lg">Case Converters</div>
+                                                <div><hr class="mt-1 mb-2" /></div>
+                                                <div><AppLink :url="route('tools.case-converter.to-uppercase.show')">Lowercase to Uppercase</AppLink></div>
+                                                <div><AppLink :url="route('tools.case-converter.to-lowercase.show')">Uppercase to Lowercase</AppLink></div>
+                                            </div>
+                                            <div class="bg-white text-gray-600"></div>
+                                            <div class="bg-white text-gray-600"></div>
+                                        </div>
                                     </template>
-                                </AppDropdown>
+                                </AppMegaMenu>
                             </li>
                             <li class="inline-block px-3">
                                 <AppLink :url="route('contact.show')"> Contact </AppLink>

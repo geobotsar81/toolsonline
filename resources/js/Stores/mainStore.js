@@ -17,11 +17,11 @@ export const useMainStore = defineStore("main", {
             this.toastShow = true;
             this.toastMessage = message;
             this.toastType = type;
+
+            setTimeout(() => this.toastHide(), 2000);
         },
         toastHide() {
             this.toastShow = false;
-            this.toastMessage = "";
-            this.toastType = "";
         },
     },
 });
