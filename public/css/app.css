@@ -1228,9 +1228,6 @@ textarea.form-control.is-invalid {
   -ms-flex-basis: auto;
   flex-basis: auto;
 }
-.navbar-expand .navbar-toggler {
-  display: none;
-}
 .navbar-expand .offcanvas {
   position: inherit;
   bottom: 0;
@@ -3986,14 +3983,14 @@ textarea.form-control.is-invalid {
 .top-0 {
   top: 0px;
 }
+.top-full {
+  top: 100%;
+}
 .bottom-0 {
   bottom: 0px;
 }
 .right-4 {
   right: 1rem;
-}
-.top-full {
-  top: 100%;
 }
 .z-0 {
   z-index: 0;
@@ -4013,15 +4010,6 @@ textarea.form-control.is-invalid {
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-.col-span-3 {
-  grid-column: span 3 / span 3;
-}
-.col-span-4 {
-  grid-column: span 4 / span 4;
-}
 .float-left {
   float: left;
 }
@@ -4031,10 +4019,6 @@ textarea.form-control.is-invalid {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -4114,11 +4098,17 @@ textarea.form-control.is-invalid {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mr-auto {
+  margin-right: auto;
+}
+.mt-0 {
+  margin-top: 0px;
+}
 .mb-3 {
   margin-bottom: 0.75rem;
 }
-.-mt-6 {
-  margin-top: -1.5rem;
+.-mb-6 {
+  margin-bottom: -1.5rem;
 }
 .-ml-6 {
   margin-left: -1.5rem;
@@ -4126,17 +4116,11 @@ textarea.form-control.is-invalid {
 .-mr-6 {
   margin-right: -1.5rem;
 }
+.-mt-6 {
+  margin-top: -1.5rem;
+}
 .mt-12 {
   margin-top: 3rem;
-}
-.-mb-6 {
-  margin-bottom: -1.5rem;
-}
-.mr-auto {
-  margin-right: auto;
-}
-.mt-0 {
-  margin-top: 0px;
 }
 .box-content {
   box-sizing: content-box;
@@ -4261,8 +4245,8 @@ textarea.form-control.is-invalid {
 .w-96 {
   width: 24rem;
 }
-.w-\[40rem\] {
-  width: 40rem;
+.w-32 {
+  width: 8rem;
 }
 .min-w-0 {
   min-width: 0px;
@@ -4480,9 +4464,6 @@ textarea.form-control.is-invalid {
 .border-2 {
   border-width: 2px;
 }
-.border-0 {
-  border-width: 0px;
-}
 .border-b-2 {
   border-bottom-width: 2px;
 }
@@ -4595,9 +4576,6 @@ textarea.form-control.is-invalid {
 .bg-green-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
-}
-.bg-transparent {
-  background-color: transparent;
 }
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
@@ -4736,9 +4714,6 @@ textarea.form-control.is-invalid {
 .pb-6 {
   padding-bottom: 1.5rem;
 }
-.pr-2 {
-  padding-right: 0.5rem;
-}
 .text-left {
   text-align: left;
 }
@@ -4813,9 +4788,6 @@ textarea.form-control.is-invalid {
 }
 .leading-4 {
   line-height: 1rem;
-}
-.leading-none {
-  line-height: 1;
 }
 .tracking-widest {
   letter-spacing: 0.1em;
@@ -4993,11 +4965,6 @@ textarea.form-control.is-invalid {
   transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-.transition-shadow {
-  transition-property: box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -5518,8 +5485,12 @@ textarea.form-control.is-invalid {
     grid-column-start: 2;
   }
 
-  .lg\:hidden {
-    display: none;
+  .lg\:ml-auto {
+    margin-left: auto;
+  }
+
+  .lg\:mr-0 {
+    margin-right: 0px;
   }
 
   .lg\:grid-cols-4 {
@@ -5529,11 +5500,6 @@ textarea.form-control.is-invalid {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-
-  .lg\:px-2 {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 
   .lg\:text-left {

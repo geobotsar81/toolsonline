@@ -5,7 +5,7 @@ defineProps({
 });
 </script>
 <template>
-    <div class="navbar-collapse collapse grow" id="navbarSupportedContentX">
+    <div class="navbar-collapse grow" id="navbarSupportedContentX">
         <ul class="navbar-nav mr-auto flex flex-row">
             <li class="nav-item dropdown static">
                 <a

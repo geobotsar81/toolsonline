@@ -5,6 +5,7 @@ import { createInertiaApp } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
 import { createPinia } from "pinia";
 
+import __debounce from "lodash";
 import "tw-elements";
 
 createInertiaApp({

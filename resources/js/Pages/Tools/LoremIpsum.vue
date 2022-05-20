@@ -10,6 +10,8 @@ import AppError from "@/Shared/Form/AppError.vue";
 import AppSelect from "@/Shared/Form/AppSelect.vue";
 import AppButtonPrimary from "@/Shared/AppButtonPrimary.vue";
 import AppLoader from "@/Shared/Form/AppLoader";
+
+import { useCopyText } from "@/Composables/useCopyText.js";
 import { useMainStore } from "@/Stores/mainStore";
 
 import { ref, computed, onMounted } from "vue";
@@ -32,7 +34,7 @@ onMounted(() => {
     generateLoremIpsum();
 });
 
-function generateLoremIpsum() {
+const generateLoremIpsum = _.debounce(() => {
     errorMessage.value = "";
     processing.value = true;
 
@@ -57,25 +59,7 @@ function generateLoremIpsum() {
             processing.value = false;
             mainStore.toastAppear("Could not generate lorem ipsum", "error");
         });
-}
-
-function copyText() {
-    let text = "";
-    try {
-        if (Array.isArray(loremText.value)) {
-            loremText.value.forEach((element) => {
-                text = text + element + "\n\n";
-            });
-        } else {
-            text = loremText.value;
-        }
-        navigator.clipboard.writeText(text);
-
-        mainStore.toastAppear("Copied to clipboard!", "success");
-    } catch (error) {
-        mainStore.toastAppear("Could not copy content to clipboard", "error");
-    }
-}
+}, 200);
 </script>
 
 <template>
@@ -116,7 +100,7 @@ function copyText() {
                                     <AppLoader v-else class="mx-auto mt-2" />
                                 </div>
                                 <div class="col-span-6 md:col-span-4 text-left md:text-right">
-                                    <AppButtonPrimary v-if="!processing" @click.prevent="copyText"><i class="fas fa-copy mr-2"></i> COPY</AppButtonPrimary>
+                                    <AppButtonPrimary v-if="!processing" @click.prevent="useCopyText(loremText)"><i class="fas fa-copy mr-2"></i> COPY</AppButtonPrimary>
                                 </div>
                             </div>
                         </div>

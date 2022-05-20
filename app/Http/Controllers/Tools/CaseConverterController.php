@@ -30,4 +30,15 @@ class CaseConverterController extends Controller
 
         return Inertia::render("Tools/CaseConverter", ["pageMeta" => $page, "convertType" => "to-lowercase"])->withViewData($page);
     }
+
+    public function toSentence()
+    {
+        $page = [
+            "title" => "Sentence case converter",
+            "description" => "Convert text to sentence case",
+            "url" => route("tools.case-converter.to-sentencecase.show"),
+        ];
+
+        return Inertia::render("Tools/CaseConverter", ["pageMeta" => $page, "convertType" => "to-sentencecase"])->withViewData($page);
+    }
 }

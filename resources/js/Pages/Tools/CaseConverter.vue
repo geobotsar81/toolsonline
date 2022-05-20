@@ -10,6 +10,8 @@ import AppError from "@/Shared/Form/AppError.vue";
 import AppSelect from "@/Shared/Form/AppSelect.vue";
 import AppButtonPrimary from "@/Shared/AppButtonPrimary.vue";
 import AppLoader from "@/Shared/Form/AppLoader";
+
+import { useCopyText } from "@/Composables/useCopyText.js";
 import { useMainStore } from "@/Stores/mainStore";
 
 import { ref, computed, onMounted } from "vue";
@@ -25,18 +27,31 @@ const processing = ref(false);
 
 const mainStore = useMainStore();
 
-function convertText() {
+const convertText = _.debounce(() => {
     errorMessage.value = "";
     processing.value = true;
 
+    let text = textToTransform.value;
+
     try {
         if (convertType.value == "to-uppercase") {
-            textToTransform.value = textToTransform.value.toUpperCase();
+            text = text.toUpperCase();
         }
         if (convertType.value == "to-lowercase") {
-            textToTransform.value = textToTransform.value.toLowerCase();
+            text = text.toLowerCase();
+        }
+        if (convertType.value == "to-sentencecase") {
+            const sentences = text.split(".");
+            let newtext = "";
+            sentences.forEach((sentence) => {
+                let lower = sentence.toLowerCase();
+                sentence = sentence.charAt(0).toUpperCase() + lower.slice(1);
+                newtext = newtext + sentence + ". ";
+            });
+            text = newtext;
         }
 
+        textToTransform.value = text;
         processing.value = false;
         mainStore.toastAppear("Converted successfully!", "success");
     } catch (error) {
@@ -44,20 +59,7 @@ function convertText() {
         processing.value = false;
         mainStore.toastAppear("Could not convert text", "error");
     }
-}
-
-function copyText() {
-    let text = "";
-    try {
-        text = textToTransform.value;
-
-        navigator.clipboard.writeText(text);
-
-        mainStore.toastAppear("Copied to clipboard!", "success");
-    } catch (error) {
-        mainStore.toastAppear("Could not copy content to clipboard", "error");
-    }
-}
+}, 200);
 </script>
 
 <template>
@@ -83,7 +85,7 @@ function copyText() {
                             <div class="grid grid-cols-12 gap-x-2">
                                 <div class="col-span-12">
                                     <AppButtonPrimary class="w-100" v-if="!processing" @click="convertText">CONVERT</AppButtonPrimary>
-                                    <AppButtonPrimary v-if="!processing" @click.prevent="copyText" class="ml-2"><i class="fas fa-copy mr-2"></i> COPY</AppButtonPrimary>
+                                    <AppButtonPrimary v-if="!processing" @click="useCopyText(textToTransform)" class="ml-2"><i class="fas fa-copy mr-2"></i> COPY</AppButtonPrimary>
                                     <AppLoader v-else class="mx-auto mt-2" />
                                 </div>
                             </div>
