@@ -84,7 +84,7 @@ function submitForm() {
 
                             <div class="col-span-12 text-center mt-2">
                                 <AppButtonPrimary type="submit" class="buttonRed" v-if="!form.processing"> SEND </AppButtonPrimary>
-                                <AppLoader v-else />
+                                <AppLoader class="mx-auto" v-else />
                             </div>
 
                             <div class="col-span-12 text-center mt-2" v-if="formSuccess">

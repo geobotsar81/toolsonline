@@ -27,24 +27,32 @@ const logout = () => {
                                     >Tools
                                     <template v-slot:items>
                                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                            <div class="bg-white text-gray-600">
+                                            <div class="bg-white text-gray-600 text-left">
                                                 <div class="font-bold text-lg">Popular Tools</div>
-                                                <div class="w-32 mx-auto lg:ml-auto lg:mr-0"><hr class="mt-1 mb-2 border-t-1 border-t-gray-300" /></div>
-                                                <ol class="list-disc inline-block">
-                                                    <li><AppLink :url="route('tools.lorem-ipsum.show')">Lorem Ipsum Generator</AppLink></li>
+                                                <div class="w-32 ml-0"><hr class="mt-1 mb-2 border-t-2 border-t-gray-300" /></div>
+                                                <ol class="inline-block">
+                                                    <li class="mt-1">
+                                                        <AppLink :url="route('tools.lorem-ipsum.show')"><i class="far fa-angle-right text-sm"></i> Lorem Ipsum Generator</AppLink>
+                                                    </li>
                                                 </ol>
                                             </div>
-                                            <div class="bg-white text-gray-600">
+                                            <div class="bg-white text-gray-600 text-left">
                                                 <div class="font-bold text-lg">Case Converters</div>
-                                                <div class="w-32 mx-auto lg:ml-auto lg:mr-0"><hr class="mt-1 mb-2 border-t-1 border-t-gray-300" /></div>
-                                                <ol class="list-disc inline-block">
-                                                    <li><AppLink :url="route('tools.case-converter.to-uppercase.show')">Lowercase to Uppercase</AppLink></li>
-                                                    <li><AppLink :url="route('tools.case-converter.to-lowercase.show')">Uppercase to Lowercase</AppLink></li>
-                                                    <li><AppLink :url="route('tools.case-converter.to-sentencecase.show')">Sentence Case</AppLink></li>
+                                                <div class="w-32 ml-0"><hr class="mt-1 mb-2 border-t-2 border-t-gray-300" /></div>
+                                                <ol class="inline-block">
+                                                    <li class="mt-1">
+                                                        <AppLink :url="route('tools.case-converter.to-uppercase.show')"><i class="far fa-angle-right text-sm"></i> Lowercase to Uppercase</AppLink>
+                                                    </li>
+                                                    <li class="mt-1">
+                                                        <AppLink :url="route('tools.case-converter.to-lowercase.show')"><i class="far fa-angle-right text-sm"></i> Uppercase to Lowercase</AppLink>
+                                                    </li>
+                                                    <li class="mt-1">
+                                                        <AppLink :url="route('tools.case-converter.to-sentencecase.show')"><i class="far fa-angle-right text-sm"></i> Sentence Case</AppLink>
+                                                    </li>
                                                 </ol>
                                             </div>
-                                            <div class="bg-white text-gray-600"></div>
-                                            <div class="bg-white text-gray-600"></div>
+                                            <div class="bg-white text-gray-600 text-left"></div>
+                                            <div class="bg-white text-gray-600 text-left"></div>
                                         </div>
                                     </template>
                                 </AppMegaMenu>

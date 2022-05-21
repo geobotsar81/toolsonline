@@ -7,47 +7,62 @@ import AppH5 from "@/Shared/AppH5.vue";
         <div class="container py-12">
             <div class="grid grid-cols-12 pb-6 text-center sm:text-left">
                 <div class="col-span-12 sm:col-span-6 md:col-span-3 mb-4">
-                    <div><AppH5 class="mb-2">Menu Items</AppH5></div>
+                    <div><AppH5 class="mb-2">FreeOnlineTools</AppH5></div>
                     <div>
-                        <ul>
-                            <li><AppLink :url="route('dashboard')">Home</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">FAQ</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">Contact</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">Terms & Conditions</AppLink></li>
+                        <ul class="text-gray-700">
+                            <li>
+                                <AppLink :url="route('dashboard')"><i class="far fa-angle-right text-sm"></i> Home</AppLink>
+                            </li>
+                            <li>
+                                <AppLink :url="route('dashboard')"><i class="far fa-angle-right text-sm"></i> FAQ</AppLink>
+                            </li>
+                            <li>
+                                <AppLink :url="route('dashboard')"><i class="far fa-angle-right text-sm"></i> Contact</AppLink>
+                            </li>
+                            <li>
+                                <AppLink :url="route('dashboard')"><i class="far fa-angle-right text-sm"></i> Terms & Conditions</AppLink>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-span-12 sm:col-span-6 md:col-span-3 mb-4">
-                    <div><AppH5 class="mb-2">Calculators</AppH5></div>
+                    <div><AppH5 class="mb-2">Popular Tools</AppH5></div>
                     <div>
-                        <ul>
-                            <li><AppLink :url="route('dashboard')">Home</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">FAQ</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">Contact</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">Terms & Conditions</AppLink></li>
+                        <ul class="text-gray-700">
+                            <li>
+                                <AppLink :url="route('tools.all')"><i class="far fa-angle-right text-sm"></i> Loan Calculator</AppLink>
+                            </li>
+                            <li>
+                                <AppLink :url="route('tools.lorem-ipsum.show')"><i class="far fa-angle-right text-sm"></i> Lorem Ipsum Generator</AppLink>
+                            </li>
+                            <li>
+                                <AppLink :url="route('tools.all')"><i class="far fa-angle-right text-sm"></i> BMI Calculator</AppLink>
+                            </li>
+                            <li>
+                                <AppLink :url="route('tools.all')"><i class="far fa-angle-right text-sm"></i> All Tools</AppLink>
+                            </li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="col-span-12 sm:col-span-6 md:col-span-3 mb-4">
                     <div><AppH5 class="mb-2">Contacts</AppH5></div>
                     <div>
-                        <ul>
-                            <li><AppLink :url="route('dashboard')">Home</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">FAQ</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">Contact</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">Terms & Conditions</AppLink></li>
+                        <ul class="text-gray-700">
+                            <li><i class="far fa-envelope text-red-500 mr-2"></i> info@freelonlinetools.com</li>
+                            <li><i class="far fa-link text-red-500 mr-2"></i> www.freeonlinetools</li>
+                            <li><i class="far fa-phone-alt text-red-500 mr-2"></i> nope, dont have one</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-span-12 sm:col-span-6 md:col-span-3 mb-4">
-                    <div><AppH5 class="mb-2">Follow us</AppH5></div>
+                    <div><AppH5 class="mb-2">Partner websites</AppH5></div>
                     <div>
-                        <ul>
-                            <li><AppLink :url="route('dashboard')">Home</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">FAQ</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">Contact</AppLink></li>
-                            <li><AppLink :url="route('dashboard')">Terms & Conditions</AppLink></li>
+                        <ul class="text-gray-700">
+                            <li><a target="_blank" href="https://www.laramotely.com">laramotely.com</a></li>
+                            <li><a target="_blank" href="https://www.commandpost.dev">commandpost.dev</a></li>
+                            <li><a target="_blank" href="https://www.captainbrew.com">captainbrew.com</a></li>
                         </ul>
                     </div>
                 </div>

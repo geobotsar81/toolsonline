@@ -24,6 +24,8 @@ Route::post("/contact", [PageController::class, "sendMail"])->name("contact.send
 Route::prefix("/tools")
     ->name("tools.")
     ->group(function () {
+        Route::get("/all", [PageController::class, "showAll"])->name("all");
+
         Route::get("/lorem-ipsum-generator", [LoremIpsumController::class, "show"])->name("lorem-ipsum.show");
         Route::post("/lorem-ipsum-generate", [LoremIpsumController::class, "generate"])->name("lorem-ipsum.generate");
 

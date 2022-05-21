@@ -81,7 +81,7 @@ const convertText = _.debounce(() => {
                             <AppTextarea placeholder="Type your text here" name="textToTransform" v-model="textToTransform" />
                         </div>
 
-                        <div class="p-6 bg-gray-100 border-5-2 border-gray-200 -mb-6 -ml-6 -mr-6 mt-4">
+                        <div class="p-6 bg-gray-100 border-t-2 border-solid border-gray-200 -mb-6 -ml-6 -mr-6 mt-4">
                             <div class="grid grid-cols-12 gap-x-2">
                                 <div class="col-span-12">
                                     <AppButtonPrimary class="w-100" v-if="!processing" @click="convertText">CONVERT</AppButtonPrimary>
