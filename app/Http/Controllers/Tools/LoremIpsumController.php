@@ -3,13 +3,19 @@
 namespace App\Http\Controllers\Tools;
 
 use Inertia\Inertia;
+use Inertia\Response;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 
 class LoremIpsumController extends Controller
 {
-    public function show()
+    /**
+     * Show Lorem Ipsum Calculator
+     *
+     * @return Response
+     */
+    public function show(): Response
     {
         $page = [
             "title" => "Lorem Ipsum Generator",
@@ -17,16 +23,15 @@ class LoremIpsumController extends Controller
             "url" => route("tools.lorem-ipsum.show"),
         ];
 
-        $faker = \Faker\Factory::create();
-
-        $loremText = [];
-        for ($i = 0; $i < 5; $i++) {
-            array_push($loremText, $faker->paragraph(7));
-        }
-
-        return Inertia::render("Tools/LoremIpsum", ["pageMeta" => $page, "loremText" => $loremText])->withViewData($page);
+        return Inertia::render("Tools/LoremIpsum", ["pageMeta" => $page])->withViewData($page);
     }
 
+    /**
+     * Generate Lorem Ipsum text
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function generate(Request $request): JsonResponse
     {
         $request->validate([
@@ -54,8 +59,6 @@ class LoremIpsumController extends Controller
                 array_push($loremText, $faker->paragraph(7));
             }
         }
-
-        debug($loremText);
 
         return response()->json(["loremText" => $loremText]);
     }

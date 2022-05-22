@@ -31,7 +31,7 @@ import AppH5 from "@/Shared/AppH5.vue";
                     <div>
                         <ul class="text-gray-700">
                             <li>
-                                <AppLink :url="route('tools.all')"><i class="far fa-angle-right text-sm"></i> Loan Calculator</AppLink>
+                                <AppLink :url="route('tools.loan-calculator.show')"><i class="far fa-angle-right text-sm"></i> Loan Calculator</AppLink>
                             </li>
                             <li>
                                 <AppLink :url="route('tools.lorem-ipsum.show')"><i class="far fa-angle-right text-sm"></i> Lorem Ipsum Generator</AppLink>

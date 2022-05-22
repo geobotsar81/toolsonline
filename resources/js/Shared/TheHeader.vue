@@ -30,16 +30,19 @@ const logout = () => {
                                             <div class="bg-white text-gray-600 text-left">
                                                 <div class="font-bold text-lg">Popular Tools</div>
                                                 <div class="w-32 ml-0"><hr class="mt-1 mb-2 border-t-2 border-t-gray-300" /></div>
-                                                <ol class="inline-block">
+                                                <ul class="inline-block">
                                                     <li class="mt-1">
                                                         <AppLink :url="route('tools.lorem-ipsum.show')"><i class="far fa-angle-right text-sm"></i> Lorem Ipsum Generator</AppLink>
                                                     </li>
-                                                </ol>
+                                                    <li class="mt-1">
+                                                        <AppLink :url="route('tools.loan-calculator.show')"><i class="far fa-angle-right text-sm"></i> Loan Calculator</AppLink>
+                                                    </li>
+                                                </ul>
                                             </div>
                                             <div class="bg-white text-gray-600 text-left">
                                                 <div class="font-bold text-lg">Case Converters</div>
                                                 <div class="w-32 ml-0"><hr class="mt-1 mb-2 border-t-2 border-t-gray-300" /></div>
-                                                <ol class="inline-block">
+                                                <ul class="inline-block">
                                                     <li class="mt-1">
                                                         <AppLink :url="route('tools.case-converter.to-uppercase.show')"><i class="far fa-angle-right text-sm"></i> Lowercase to Uppercase</AppLink>
                                                     </li>
@@ -49,7 +52,7 @@ const logout = () => {
                                                     <li class="mt-1">
                                                         <AppLink :url="route('tools.case-converter.to-sentencecase.show')"><i class="far fa-angle-right text-sm"></i> Sentence Case</AppLink>
                                                     </li>
-                                                </ol>
+                                                </ul>
                                             </div>
                                             <div class="bg-white text-gray-600 text-left"></div>
                                             <div class="bg-white text-gray-600 text-left"></div>

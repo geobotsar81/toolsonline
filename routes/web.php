@@ -3,8 +3,9 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\Tools\CaseConverterController;
 use App\Http\Controllers\Tools\LoremIpsumController;
+use App\Http\Controllers\Tools\CaseConverterController;
+use App\Http\Controllers\Tools\LoanCalculatorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,15 @@ Route::prefix("/tools")
     ->group(function () {
         Route::get("/all", [PageController::class, "showAll"])->name("all");
 
+        //Lorem Ipsum
         Route::get("/lorem-ipsum-generator", [LoremIpsumController::class, "show"])->name("lorem-ipsum.show");
-        Route::post("/lorem-ipsum-generate", [LoremIpsumController::class, "generate"])->name("lorem-ipsum.generate");
+        Route::post("/lorem-ipsum-generator", [LoremIpsumController::class, "generate"])->name("lorem-ipsum.generate");
 
+        //Loan Calculator
+        Route::get("/loan-calculator", [LoanCalculatorController::class, "show"])->name("loan-calculator.show");
+        Route::post("/loan-calculator", [LoanCalculatorController::class, "calculate"])->name("loan-calculator.calculate");
+
+        //Case Converters
         Route::prefix("/case-converter")
             ->name("case-converter.")
             ->group(function () {

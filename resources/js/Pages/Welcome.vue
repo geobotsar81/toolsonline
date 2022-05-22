@@ -41,7 +41,7 @@ defineProps({
 
             <div class="grid grid-cols-12 gap-4 mt-8">
                 <div class="col-span-12 md:col-span-6 lg:col-span-4">
-                    <AppCard :url="route('tools.all')" icon="fal fa-piggy-bank" title="Loan Calculator" content="Determine the monthly payments on a loan"> </AppCard>
+                    <AppCard :url="route('tools.loan-calculator.show')" icon="fal fa-piggy-bank" title="Loan Calculator" content="Determine the monthly payments on a loan"> </AppCard>
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-4">
                     <AppCard :url="route('tools.lorem-ipsum.show')" icon="fal fa-align-left" title="Lorem Ipsum Generator" content="Generate dummy Lorem Ipsum text"> </AppCard>

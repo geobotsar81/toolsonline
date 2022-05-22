@@ -18,10 +18,7 @@ mix.js("resources/js/app.js", "public/js")
         "@": "resources/js",
     });
 
-mix.browserSync({
-    proxy: "nginx",
-    host: "localhost",
-});
+mix.browserSync();
 
 if (mix.inProduction()) {
     mix.version();
