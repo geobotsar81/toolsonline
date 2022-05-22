@@ -5,10 +5,11 @@ defineProps({
     icon: String,
     title: String,
     content: String,
+    extraClass: String,
 });
 </script>
 <template>
-    <div class="mb-2 p-6 text-left bg-white border border-gray-200">
+    <div :class="extraClass" class="mb-2 p-6 text-left bg-white border border-gray-200">
         <slot />
     </div>
 </template>

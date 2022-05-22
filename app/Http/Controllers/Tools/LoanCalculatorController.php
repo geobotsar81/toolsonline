@@ -48,7 +48,7 @@ class LoanCalculatorController extends Controller
 
         //$loanResult =  P (r (1+r)^n) / ( (1+r)^n -1 );
 
-        $loanRate = $loanInterestRate / 12;
+        $loanRate = $loanInterestRate / 12 / 100;
         $loanPeriod = $loanDurationType == "years" ? $loanDuration * 12 : $loanDuration;
         $firstOperand = $loanRate * pow(1 + $loanRate, $loanPeriod);
         $secondOperand = pow(1 + $loanRate, $loanPeriod) - 1;
@@ -58,7 +58,14 @@ class LoanCalculatorController extends Controller
         debug($firstOperand);
         debug($secondOperand);
 
-        $loanResult = $loanAmount * ($firstOperand / $secondOperand);
-        return response()->json(["loanResult" => $loanResult]);
+        $loanMonthly = $loanAmount * ($firstOperand / $secondOperand);
+        $loanTotal = $loanMonthly * $loanPeriod;
+        $loanInterestPaid = $loanTotal - $loanAmount;
+
+        return response()->json([
+            "loanMonthly" => number_format($loanMonthly, 2, ".", ","),
+            "loanTotal" => number_format($loanTotal, 2, ".", ","),
+            "loanInterestPaid" => number_format($loanInterestPaid, 2, ".", ","),
+        ]);
     }
 }

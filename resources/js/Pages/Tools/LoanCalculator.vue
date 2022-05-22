@@ -26,13 +26,18 @@ const loanDurationType = ref("months");
 const loanDuration = ref(60);
 const loanCurrency = ref("$");
 const loanInterestRate = ref(4.5);
+
 const honeypot = ref(null);
-const loanResult = ref(null);
+const loanMonthly = ref(null);
+const loanTotal = ref(null);
+const loanInterestPaid = ref(null);
+
 const errorMessage = ref(null);
 const processing = ref(false);
 
 const options = ["months", "years"];
 const currencyOptions = ["$", "€", "£"];
+
 const mainStore = useMainStore();
 
 onMounted(() => {
@@ -52,7 +57,9 @@ const calculateLoan = _.debounce(() => {
             honeypot: honeypot.value,
         })
         .then((response) => {
-            loanResult.value = response.data.loanResult;
+            loanMonthly.value = response.data.loanMonthly;
+            loanInterestPaid.value = response.data.loanInterestPaid;
+            loanTotal.value = response.data.loanTotal;
             processing.value = false;
         })
         .catch((error) => {
@@ -82,10 +89,10 @@ const calculateLoan = _.debounce(() => {
             </div>
 
             <div class="grid grid-cols-12 gap-4 mt-8">
-                <div class="col-span-12 lg:col-span-10 lg:col-start-2">
-                    <AppWhiteContainer>
-                        <div class="grid grid-cols-2">
-                            <div class="p-6 bg-gray-100 border-r-2 border-gray-200 -m-6">
+                <div class="col-span-12">
+                    <AppWhiteContainer extra-class="p-0">
+                        <div class="grid md:grid-cols-2">
+                            <div class="p-6 bg-gray-100 border-b-2 border-r-0 md:border-r-2 md:border-m-0 border-gray-200">
                                 <div class="grid grid-cols-12 gap-x-2">
                                     <div class="col-span-12">
                                         <AppError v-if="errorMessage" class="mb-2">
@@ -115,7 +122,7 @@ const calculateLoan = _.debounce(() => {
                                     </div>
                                     <div class="col-span-6 mb-4">
                                         <AppLabel label="Interest rate per year" for="loanInterestRate" />
-                                        <AppInput icon="far fa-percentage" name="loanInterestRate" v-model="loanInterestRate" />
+                                        <AppInput icon="fal fa-percentage" name="loanInterestRate" v-model="loanInterestRate" />
                                     </div>
                                     <div class="col-span-6">
                                         <AppButtonPrimary extraClass="w-full" class="mt-6" v-if="!processing" @click="calculateLoan">CALCULATE</AppButtonPrimary>
@@ -124,7 +131,17 @@ const calculateLoan = _.debounce(() => {
                                 </div>
                             </div>
                             <div class="p-6 text-center">
-                                <div class="mt-4">{{ loanCurrency }} {{ loanResult }}</div>
+                                <div class="grid grid-cols-12">
+                                    <div class="col-span-12 font-semibold mt-8 md:mt-0">Monthly payments</div>
+                                    <div class="col-span-12 mt-4 text-4xl mb-8 font-bold">{{ loanCurrency }} {{ loanMonthly }}</div>
+                                    <div class="col-span-6 text-left">Total repayable</div>
+                                    <div class="col-span-6 text-right">{{ loanCurrency }} {{ loanTotal }}</div>
+                                    <div class="col-span-12 mt-2 mb-2">
+                                        <hr class="border-gray-300" />
+                                    </div>
+                                    <div class="col-span-6 text-left">Total interest payable</div>
+                                    <div class="col-span-6 text-right">{{ loanCurrency }} {{ loanInterestPaid }}</div>
+                                </div>
                             </div>
                         </div>
                     </AppWhiteContainer>

@@ -24989,7 +24989,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     var loanCurrency = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)("$");
     var loanInterestRate = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(4.5);
     var honeypot = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(null);
-    var loanResult = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(null);
+    var loanMonthly = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(null);
+    var loanTotal = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(null);
+    var loanInterestPaid = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(null);
     var errorMessage = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(null);
     var processing = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(false);
     var options = ["months", "years"];
@@ -25009,7 +25011,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         loanInterestRate: loanInterestRate.value,
         honeypot: honeypot.value
       }).then(function (response) {
-        loanResult.value = response.data.loanResult;
+        loanMonthly.value = response.data.loanMonthly;
+        loanInterestPaid.value = response.data.loanInterestPaid;
+        loanTotal.value = response.data.loanTotal;
         processing.value = false;
       })["catch"](function (error) {
         if (error.response.data.errors) {
@@ -25039,7 +25043,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       loanCurrency: loanCurrency,
       loanInterestRate: loanInterestRate,
       honeypot: honeypot,
-      loanResult: loanResult,
+      loanMonthly: loanMonthly,
+      loanTotal: loanTotal,
+      loanInterestPaid: loanInterestPaid,
       errorMessage: errorMessage,
       processing: processing,
       options: options,
@@ -25546,7 +25552,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     icon: String,
     title: String,
-    content: String
+    content: String,
+    extraClass: String
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
@@ -29924,13 +29931,13 @@ var _hoisted_5 = {
   "class": "grid grid-cols-12 gap-4 mt-8"
 };
 var _hoisted_6 = {
-  "class": "col-span-12 lg:col-span-10 lg:col-start-2"
+  "class": "col-span-12"
 };
 var _hoisted_7 = {
-  "class": "grid grid-cols-2"
+  "class": "grid md:grid-cols-2"
 };
 var _hoisted_8 = {
-  "class": "p-6 bg-gray-100 border-r-2 border-gray-200 -m-6"
+  "class": "p-6 bg-gray-100 border-b-2 border-r-0 md:border-r-2 md:border-m-0 border-gray-200"
 };
 var _hoisted_9 = {
   "class": "grid grid-cols-12 gap-x-2"
@@ -29969,16 +29976,54 @@ var _hoisted_20 = {
   "class": "p-6 text-center"
 };
 var _hoisted_21 = {
-  "class": "mt-4"
+  "class": "grid grid-cols-12"
 };
-var _hoisted_22 = {
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-span-12 font-semibold mt-8 md:mt-0"
+}, "Monthly payments", -1
+/* HOISTED */
+);
+
+var _hoisted_23 = {
+  "class": "col-span-12 mt-4 text-4xl mb-8 font-bold"
+};
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-span-6 text-left"
+}, "Total repayable", -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  "class": "col-span-6 text-right"
+};
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-span-12 mt-2 mb-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
+  "class": "border-gray-300"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-span-6 text-left"
+}, "Total interest payable", -1
+/* HOISTED */
+);
+
+var _hoisted_28 = {
+  "class": "col-span-6 text-right"
+};
+var _hoisted_29 = {
   "class": "grid grid-cols-12 mt-12"
 };
-var _hoisted_23 = {
+var _hoisted_30 = {
   "class": "col-span-12 lg:col-span-10 lg:col-start-2"
 };
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("About the Loan Calculator");
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("About the Loan Calculator");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AppLayout"], {
@@ -30005,7 +30050,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
         /* STABLE */
 
-      })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AppWhiteContainer"], null, {
+      })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AppWhiteContainer"], {
+        "extra-class": "p-0"
+      }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [$setup.errorMessage ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AppError"], {
             key: 0,
@@ -30077,7 +30124,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             label: "Interest rate per year",
             "for": "loanInterestRate"
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AppInput"], {
-            icon: "far fa-percentage",
+            icon: "fal fa-percentage",
             name: "loanInterestRate",
             modelValue: $setup.loanInterestRate,
             "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
@@ -30102,16 +30149,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           , ["onClick"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AppLoader"], {
             key: 1,
             "class": "mx-auto mt-8"
-          }))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.loanCurrency) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.loanResult), 1
+          }))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.loanCurrency) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.loanMonthly), 1
           /* TEXT */
-          )])])];
+          ), _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.loanCurrency) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.loanTotal), 1
+          /* TEXT */
+          ), _hoisted_26, _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.loanCurrency) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.loanInterestPaid), 1
+          /* TEXT */
+          )])])])];
         }),
         _: 1
         /* STABLE */
 
-      })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AppH2"], null, {
+      })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AppH2"], null, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_24];
+          return [_hoisted_31];
         }),
         _: 1
         /* STABLE */
@@ -31084,11 +31135,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "class": "mb-2 p-6 text-left bg-white border border-gray-200"
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$props.extraClass, "mb-2 p-6 text-left bg-white border border-gray-200"])
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")], 2
+  /* CLASS */
+  );
 }
 
 /***/ }),

@@ -3992,15 +3992,6 @@ textarea.form-control.is-invalid {
 .right-4 {
   right: 1rem;
 }
-.top-10 {
-  top: 2.5rem;
-}
-.right-10 {
-  right: 2.5rem;
-}
-.right-2 {
-  right: 0.5rem;
-}
 .top-4 {
   top: 1rem;
 }
@@ -4021,18 +4012,6 @@ textarea.form-control.is-invalid {
 }
 .col-span-1 {
   grid-column: span 1 / span 1;
-}
-.col-span-4 {
-  grid-column: span 4 / span 4;
-}
-.col-span-8 {
-  grid-column: span 8 / span 8;
-}
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-.col-span-10 {
-  grid-column: span 10 / span 10;
 }
 .col-span-3 {
   grid-column: span 3 / span 3;
@@ -4157,6 +4136,9 @@ textarea.form-control.is-invalid {
 }
 .-mt-6 {
   margin-top: -1.5rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
 }
 .box-content {
   box-sizing: content-box;
@@ -4524,6 +4506,9 @@ textarea.form-control.is-invalid {
 .border-r-2 {
   border-right-width: 2px;
 }
+.border-r-0 {
+  border-right-width: 0px;
+}
 .border-solid {
   border-style: solid;
 }
@@ -4561,13 +4546,25 @@ textarea.form-control.is-invalid {
   --tw-border-opacity: 1;
   border-color: rgb(74 222 128 / var(--tw-border-opacity));
 }
-.border-t-gray-300 {
+.border-gray-500 {
   --tw-border-opacity: 1;
-  border-top-color: rgb(221 221 221 / var(--tw-border-opacity));
+  border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 .border-t-red-500 {
   --tw-border-opacity: 1;
   border-top-color: rgb(255 123 121 / var(--tw-border-opacity));
+}
+.border-t-gray-300 {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(221 221 221 / var(--tw-border-opacity));
+}
+.border-t-gray-500 {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(107 114 128 / var(--tw-border-opacity));
+}
+.border-b-gray-500 {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -4665,6 +4662,9 @@ textarea.form-control.is-invalid {
 }
 .p-3 {
   padding: 0.75rem;
+}
+.p-0 {
+  padding: 0px;
 }
 .px-4 {
   padding-left: 1rem;
@@ -4765,6 +4765,9 @@ textarea.form-control.is-invalid {
 }
 .pb-6 {
   padding-bottom: 1.5rem;
+}
+.pl-6 {
+  padding-left: 1.5rem;
 }
 .text-left {
   text-align: left;
@@ -5508,6 +5511,10 @@ textarea.form-control.is-invalid {
 
   .md\:border-l {
     border-left-width: 1px;
+  }
+
+  .md\:border-r-2 {
+    border-right-width: 2px;
   }
 
   .md\:text-left {
