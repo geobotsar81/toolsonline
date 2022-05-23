@@ -29,28 +29,38 @@ const logout = () => {
                                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                             <div class="bg-white text-gray-600 text-left">
                                                 <div class="font-bold text-lg">Popular Tools</div>
-                                                <div class="w-32 ml-0"><hr class="mt-1 mb-2 border-t-2 border-t-gray-300" /></div>
+                                                <div class="w-32 ml-0"><hr class="mt-1 mb-2 border-t-2 border-t-red-500 border-dashed" /></div>
                                                 <ul class="inline-block">
                                                     <li class="mt-1">
-                                                        <AppLink :url="route('tools.lorem-ipsum.show')"><i class="far fa-angle-right text-sm"></i> Lorem Ipsum Generator</AppLink>
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.lorem-ipsum.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Lorem Ipsum Generator</AppLink
+                                                        >
                                                     </li>
                                                     <li class="mt-1">
-                                                        <AppLink :url="route('tools.loan-calculator.show')"><i class="far fa-angle-right text-sm"></i> Loan Calculator</AppLink>
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.loan-calculator.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Loan Calculator</AppLink
+                                                        >
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="bg-white text-gray-600 text-left">
                                                 <div class="font-bold text-lg">Case Converters</div>
-                                                <div class="w-32 ml-0"><hr class="mt-1 mb-2 border-t-2 border-t-gray-300" /></div>
+                                                <div class="w-32 ml-0"><hr class="mt-1 mb-2 border-t-2 border-t-red-500 border-dashed" /></div>
                                                 <ul class="inline-block">
                                                     <li class="mt-1">
-                                                        <AppLink :url="route('tools.case-converter.to-uppercase.show')"><i class="far fa-angle-right text-sm"></i> Lowercase to Uppercase</AppLink>
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.case-converter.to-uppercase.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Lowercase to Uppercase</AppLink
+                                                        >
                                                     </li>
                                                     <li class="mt-1">
-                                                        <AppLink :url="route('tools.case-converter.to-lowercase.show')"><i class="far fa-angle-right text-sm"></i> Uppercase to Lowercase</AppLink>
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.case-converter.to-lowercase.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Uppercase to Lowercase</AppLink
+                                                        >
                                                     </li>
                                                     <li class="mt-1">
-                                                        <AppLink :url="route('tools.case-converter.to-sentencecase.show')"><i class="far fa-angle-right text-sm"></i> Sentence Case</AppLink>
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.case-converter.to-sentencecase.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Sentence Case</AppLink
+                                                        >
                                                     </li>
                                                 </ul>
                                             </div>

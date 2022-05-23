@@ -35,7 +35,9 @@ defineProps({
             <div class="text-center"><AppH2>Popular Tools</AppH2></div>
             <div class="grid grid-cols-12 text-center">
                 <div class="col-span-12 md:col-span-8 md:col-start-3">
-                    <AppSubtitle>Check out below some of our most popular tools/calculators, or <AppLink color="red-500" :url="route('tools.all')">click here</AppLink> to see all</AppSubtitle>
+                    <AppSubtitle
+                        >Check out below some of our most popular tools/calculators, or <AppLink extra-class="text-red-500" :url="route('tools.all')">click here</AppLink> to see all</AppSubtitle
+                    >
                 </div>
             </div>
 

@@ -1,6 +1,7 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import AppWhiteContainer from "@/Shared/AppWhiteContainer.vue";
+import AppCard from "@/Shared/AppCard.vue";
 import AppH1 from "@/Shared/AppH1.vue";
 import AppH2 from "@/Shared/AppH2.vue";
 import AppSubtitle from "@/Shared/AppSubtitle.vue";
@@ -19,13 +20,33 @@ import { usePage } from "@inertiajs/inertia-vue3";
 
 const publicUrl = computed(() => usePage().props.value.publicUrl);
 const pageMeta = computed(() => usePage().props.value.pageMeta);
-const convertType = computed(() => usePage().props.value.convertType);
+const mainStore = useMainStore();
 
+const convertType = computed(() => usePage().props.value.convertType);
 const textToTransform = ref("");
 const errorMessage = ref(null);
 const processing = ref(false);
 
-const mainStore = useMainStore();
+const relatedTools = ref([
+    {
+        url: route("tools.case-converter.to-uppercase.show"),
+        icon: "fal fa-text-size",
+        title: "Lowervase to Uppercase",
+        description: "Convert your text from lowercase to uppercase",
+    },
+    {
+        url: route("tools.case-converter.to-lowercase.show"),
+        icon: "fal fa-text-size",
+        title: "Uppercase to Lowecase",
+        description: "Convert your text from uppercase to lowercase",
+    },
+    {
+        url: route("tools.case-converter.to-sentencecase.show"),
+        icon: "fal fa-text-size",
+        title: "Sentence case",
+        description: "Convert your text to sentence case",
+    },
+]);
 
 const convertText = _.debounce(() => {
     errorMessage.value = "";
@@ -93,6 +114,17 @@ const convertText = _.debounce(() => {
                     </AppWhiteContainer>
                 </div>
             </div>
+
+            <template v-if="relatedTools">
+                <div class="text-center mt-8">
+                    <AppH2>Related Tools</AppH2>
+                </div>
+                <div class="grid grid-cols-12 gap-4 mt-8">
+                    <div v-for="(tool, index) in relatedTools" :key="index" class="col-span-12 md:col-span-6 lg:col-span-4">
+                        <AppCard :url="tool.url" :icon="tool.icon" :title="tool.title" :content="tool.description"> </AppCard>
+                    </div>
+                </div>
+            </template>
         </div>
     </AppLayout>
 </template>
