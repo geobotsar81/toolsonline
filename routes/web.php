@@ -42,6 +42,7 @@ Route::prefix("/tools")
                 Route::get("/lowercase-to-uppercase-converter", [CaseConverterController::class, "toUppercase"])->name("to-uppercase.show");
                 Route::get("/uppercase-to-lowercase-converter", [CaseConverterController::class, "toLowercase"])->name("to-lowercase.show");
                 Route::get("/sentence-case-converter", [CaseConverterController::class, "toSentence"])->name("to-sentencecase.show");
+                Route::get("/word-case-converter", [CaseConverterController::class, "toWord"])->name("to-wordcase.show");
             });
     });
 

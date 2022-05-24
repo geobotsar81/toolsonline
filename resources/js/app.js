@@ -6,6 +6,8 @@ import { InertiaProgress } from "@inertiajs/progress";
 import { createPinia } from "pinia";
 
 import __debounce from "lodash";
+import __remove from "lodash";
+
 import "tw-elements";
 
 createInertiaApp({

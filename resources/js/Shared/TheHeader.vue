@@ -62,6 +62,11 @@ const logout = () => {
                                                             ><i class="far fa-angle-right text-sm"></i> Sentence Case</AppLink
                                                         >
                                                     </li>
+                                                    <li class="mt-1">
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.case-converter.to-wordcase.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Word Case</AppLink
+                                                        >
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="bg-white text-gray-600 text-left"></div>

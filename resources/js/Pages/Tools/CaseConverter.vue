@@ -23,6 +23,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
 const mainStore = useMainStore();
 
 const convertType = computed(() => usePage().props.value.convertType);
+
 const textToTransform = ref("");
 const errorMessage = ref(null);
 const processing = ref(false);
@@ -30,23 +31,29 @@ const processing = ref(false);
 const relatedTools = ref([
     {
         url: route("tools.case-converter.to-uppercase.show"),
-        icon: "fal fa-text-size",
-        title: "Lowervase to Uppercase",
+        title: "lowercase to UPPERCASE",
         description: "Convert your text from lowercase to uppercase",
     },
     {
         url: route("tools.case-converter.to-lowercase.show"),
-        icon: "fal fa-text-size",
-        title: "Uppercase to Lowecase",
+        title: "UPPERCASE to lowercase",
         description: "Convert your text from uppercase to lowercase",
     },
     {
         url: route("tools.case-converter.to-sentencecase.show"),
-        icon: "fal fa-text-size",
         title: "Sentence case",
         description: "Convert your text to sentence case",
     },
+    {
+        url: route("tools.case-converter.to-wordcase.show"),
+        title: "Word Case",
+        description: "Capitalise each word",
+    },
 ]);
+
+_.remove(relatedTools.value, function (n) {
+    return n.url == pageMeta.value.url;
+});
 
 const convertText = _.debounce(() => {
     errorMessage.value = "";
@@ -70,6 +77,17 @@ const convertText = _.debounce(() => {
                 newtext = newtext + sentence + ". ";
             });
             text = newtext;
+        }
+
+        if (convertType.value == "to-wordcase") {
+            const words = text.split(" ");
+
+            for (let i = 0; i < words.length; i++) {
+                words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+            }
+
+            words.join(" ");
+            text = words;
         }
 
         textToTransform.value = text;
