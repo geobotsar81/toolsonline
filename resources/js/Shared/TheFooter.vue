@@ -50,8 +50,8 @@ import AppH5 from "@/Shared/AppH5.vue";
                     <div><AppH5 class="mb-2">Contacts</AppH5></div>
                     <div>
                         <ul class="text-gray-700">
-                            <li><i class="far fa-envelope text-red-500 mr-2"></i> info@freelonlinetools.com</li>
-                            <li><i class="far fa-link text-red-500 mr-2"></i> www.freeonlinetools</li>
+                            <li><i class="far fa-envelope text-red-500 mr-2"></i> info@free-online-tools.com</li>
+                            <li><i class="far fa-link text-red-500 mr-2"></i> www.free-online-tools</li>
                         </ul>
                     </div>
                 </div>
