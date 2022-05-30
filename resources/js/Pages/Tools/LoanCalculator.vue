@@ -147,18 +147,6 @@ const calculateLoan = _.debounce(() => {
                     </AppWhiteContainer>
                 </div>
             </div>
-
-            <div class="grid grid-cols-12 mt-12">
-                <div class="col-span-12 lg:col-span-10 lg:col-start-2">
-                    <div>
-                        <AppH2>About the Loan Calculator</AppH2>
-                    </div>
-
-                    <div>
-                        <AppText> </AppText>
-                    </div>
-                </div>
-            </div>
         </div>
     </AppLayout>
 </template>

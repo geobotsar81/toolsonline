@@ -19,7 +19,8 @@ class LoanCalculatorController extends Controller
     {
         $page = [
             "title" => "Loan Calculator",
-            "description" => "Generate unlimited and free Lorem Ipsum text for use in your graphic, print and web layouts and explore the origins, history and meaning of Lorem Ipsum.",
+            "description" =>
+                "Determine the monthly payments on a loan. Simply enter the loan amount, term and interest rate in the fields below and click calculate. It can be used for mortgage, auto, or any other fixed loan types.",
             "url" => route("tools.loan-calculator.show"),
         ];
 

@@ -11,17 +11,17 @@ import AppH5 from "@/Shared/AppH5.vue";
                     <div>
                         <ul class="text-gray-700">
                             <li>
-                                <AppLink :url="route('dashboard')"><i class="far fa-angle-right text-sm"></i> Home</AppLink>
+                                <AppLink :url="route('home')"><i class="far fa-angle-right text-sm"></i> Home</AppLink>
                             </li>
+                            <!--<li>
+                                <AppLink :url="route('faq')"><i class="far fa-angle-right text-sm"></i> FAQ</AppLink>
+                            </li>-->
                             <li>
-                                <AppLink :url="route('dashboard')"><i class="far fa-angle-right text-sm"></i> FAQ</AppLink>
+                                <AppLink :url="route('contact.show')"><i class="far fa-angle-right text-sm"></i> Contact</AppLink>
                             </li>
-                            <li>
-                                <AppLink :url="route('dashboard')"><i class="far fa-angle-right text-sm"></i> Contact</AppLink>
-                            </li>
-                            <li>
-                                <AppLink :url="route('dashboard')"><i class="far fa-angle-right text-sm"></i> Terms & Conditions</AppLink>
-                            </li>
+                            <!--<li>
+                                <AppLink :url="route('terms')"><i class="far fa-angle-right text-sm"></i> Terms & Conditions</AppLink>
+                            </li>-->
                         </ul>
                     </div>
                 </div>
@@ -37,10 +37,10 @@ import AppH5 from "@/Shared/AppH5.vue";
                                 <AppLink :url="route('tools.lorem-ipsum.show')"><i class="far fa-angle-right text-sm"></i> Lorem Ipsum Generator</AppLink>
                             </li>
                             <li>
-                                <AppLink :url="route('tools.all')"><i class="far fa-angle-right text-sm"></i> BMI Calculator</AppLink>
+                                <AppLink :url="route('tools.case-converter.to-uppercase.show')"><i class="far fa-angle-right text-sm"></i> Case Converters</AppLink>
                             </li>
                             <li>
-                                <AppLink :url="route('tools.all')"><i class="far fa-angle-right text-sm"></i> All Tools</AppLink>
+                                <AppLink :url="route('tools.text-counter.lines-counter.show')"><i class="far fa-angle-right text-sm"></i> Text Counters</AppLink>
                             </li>
                         </ul>
                     </div>
@@ -52,7 +52,6 @@ import AppH5 from "@/Shared/AppH5.vue";
                         <ul class="text-gray-700">
                             <li><i class="far fa-envelope text-red-500 mr-2"></i> info@freelonlinetools.com</li>
                             <li><i class="far fa-link text-red-500 mr-2"></i> www.freeonlinetools</li>
-                            <li><i class="far fa-phone-alt text-red-500 mr-2"></i> nope, dont have one</li>
                         </ul>
                     </div>
                 </div>

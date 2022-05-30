@@ -27,6 +27,8 @@ const countType = computed(() => usePage().props.value.countType);
 const textToTransform = ref("");
 const errorMessage = ref(null);
 const processing = ref(false);
+const countResult = ref("");
+const countDescription = ref("");
 
 const relatedTools = ref([
     {
@@ -68,35 +70,26 @@ const countText = _.debounce(() => {
     try {
         if (countType.value == "lines") {
             const lines = text.split(/\r|\r\n|\n/);
-            const count = lines.length;
-            alert(count);
+            countResult.value = lines.length;
+            countDescription.value = "lines counted";
         }
-        if (countType.value == "to-lowercase") {
-            text = text.toLowerCase();
+        if (countType.value == "sentences") {
+            const sentences = text.match(/[\w|\)][.?!](\s|$)/g);
+            countResult.value = sentences.length;
+            countDescription.value = "sentences counted";
         }
-        if (countType.value == "to-sentencecase") {
-            const sentences = text.split(".");
-            let newtext = "";
-            sentences.forEach((sentence) => {
-                let lower = sentence.toLowerCase();
-                sentence = sentence.charAt(0).toUpperCase() + lower.slice(1);
-                newtext = newtext + sentence + ". ";
-            });
-            text = newtext;
+        if (countType.value == "words") {
+            const arr = text.split(" ");
+
+            countResult.value = arr.filter((word) => word !== "").length;
+            countDescription.value = "words counted";
         }
 
-        if (countType.value == "to-wordcase") {
-            const words = text.split(" ");
-
-            for (let i = 0; i < words.length; i++) {
-                words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-            }
-
-            words.join(" ");
-            text = words;
+        if (countType.value == "characters") {
+            countResult.value = text.length;
+            countDescription.value = "characters counted";
         }
 
-        textToTransform.value = text;
         processing.value = false;
         mainStore.toastAppear("Text count completed successfully!", "success");
     } catch (error) {
@@ -128,9 +121,12 @@ const countText = _.debounce(() => {
 
                         <div class="p-6 bg-gray-100 border-t-2 border-solid border-gray-200 -mb-6 -ml-6 -mr-6 mt-4">
                             <div class="grid grid-cols-12 gap-x-2">
-                                <div class="col-span-12">
+                                <div class="col-span-6">
                                     <AppButtonPrimary class="w-100" v-if="!processing" @click="countText">COUNT</AppButtonPrimary>
                                     <AppLoader v-else class="mx-auto mt-2" />
+                                </div>
+                                <div class="col-span-6 text-right mt-1">
+                                    <span class="text-4xl font-bold">{{ countResult }}</span> {{ countDescription }}
                                 </div>
                             </div>
                         </div>

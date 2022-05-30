@@ -17,10 +17,21 @@ class PageController extends Controller
         $page = [
             "title" => "Welcome",
             "description" => "FreeOnlineTools, the home of a variety of online tools",
-            "url" => route("contact.send"),
+            "url" => route("home"),
         ];
 
         return Inertia::render("Welcome", ["pageMeta" => $page])->withViewData($page);
+    }
+
+    public function showAll()
+    {
+        $page = [
+            "title" => "All Tools/Calculators",
+            "description" => "Check out below our selection of tools/calculators",
+            "url" => route("tools.all"),
+        ];
+
+        return Inertia::render("AllTools", ["pageMeta" => $page])->withViewData($page);
     }
 
     public function showContact()
