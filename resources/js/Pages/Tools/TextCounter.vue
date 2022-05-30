@@ -22,7 +22,7 @@ const publicUrl = computed(() => usePage().props.value.publicUrl);
 const pageMeta = computed(() => usePage().props.value.pageMeta);
 const mainStore = useMainStore();
 
-const convertType = computed(() => usePage().props.value.convertType);
+const countType = computed(() => usePage().props.value.countType);
 
 const textToTransform = ref("");
 const errorMessage = ref(null);
@@ -30,28 +30,28 @@ const processing = ref(false);
 
 const relatedTools = ref([
     {
-        url: route("tools.case-converter.to-uppercase.show"),
-        icon: "fal fa-text",
-        title: "lowercase to UPPERCASE",
-        description: "Convert your text from lowercase to uppercase",
+        url: route("tools.text-counter.lines-counter.show"),
+        icon: "fal fa-abacus",
+        title: "Lines Counter",
+        description: "Count number of lines in a given text",
     },
     {
-        url: route("tools.case-converter.to-lowercase.show"),
-        icon: "fal fa-text",
-        title: "UPPERCASE to lowercase",
-        description: "Convert your text from uppercase to lowercase",
+        url: route("tools.text-counter.sentences-counter.show"),
+        icon: "fal fa-abacus",
+        title: "Sentences Counter",
+        description: "Count number of sentences in a given text",
     },
     {
-        url: route("tools.case-converter.to-sentencecase.show"),
-        icon: "fal fa-text",
-        title: "Sentence case",
-        description: "Convert your text to sentence case",
+        url: route("tools.text-counter.words-counter.show"),
+        icon: "fal fa-abacus",
+        title: "Words Counter",
+        description: "Count number of words in a given text",
     },
     {
-        url: route("tools.case-converter.to-wordcase.show"),
-        icon: "fal fa-text",
-        title: "Word Case",
-        description: "Capitalise each word",
+        url: route("tools.text-counter.characters-counter.show"),
+        icon: "fal fa-abacus",
+        title: "Characters Counter",
+        description: "Count number of characters in a given text",
     },
 ]);
 
@@ -59,20 +59,22 @@ _.remove(relatedTools.value, function (n) {
     return n.url == pageMeta.value.url;
 });
 
-const convertText = _.debounce(() => {
+const countText = _.debounce(() => {
     errorMessage.value = "";
     processing.value = true;
 
     let text = textToTransform.value;
 
     try {
-        if (convertType.value == "to-uppercase") {
-            text = text.toUpperCase();
+        if (countType.value == "lines") {
+            const lines = text.split(/\r|\r\n|\n/);
+            const count = lines.length;
+            alert(count);
         }
-        if (convertType.value == "to-lowercase") {
+        if (countType.value == "to-lowercase") {
             text = text.toLowerCase();
         }
-        if (convertType.value == "to-sentencecase") {
+        if (countType.value == "to-sentencecase") {
             const sentences = text.split(".");
             let newtext = "";
             sentences.forEach((sentence) => {
@@ -83,7 +85,7 @@ const convertText = _.debounce(() => {
             text = newtext;
         }
 
-        if (convertType.value == "to-wordcase") {
+        if (countType.value == "to-wordcase") {
             const words = text.split(" ");
 
             for (let i = 0; i < words.length; i++) {
@@ -96,11 +98,11 @@ const convertText = _.debounce(() => {
 
         textToTransform.value = text;
         processing.value = false;
-        mainStore.toastAppear("Converted successfully!", "success");
+        mainStore.toastAppear("Text count completed successfully!", "success");
     } catch (error) {
         errorMessage.value = "";
         processing.value = false;
-        mainStore.toastAppear("Could not convert text", "error");
+        mainStore.toastAppear("Could not count text", "error");
     }
 }, 200);
 </script>
@@ -127,8 +129,7 @@ const convertText = _.debounce(() => {
                         <div class="p-6 bg-gray-100 border-t-2 border-solid border-gray-200 -mb-6 -ml-6 -mr-6 mt-4">
                             <div class="grid grid-cols-12 gap-x-2">
                                 <div class="col-span-12">
-                                    <AppButtonPrimary class="w-100" v-if="!processing" @click="convertText">CONVERT</AppButtonPrimary>
-                                    <AppButtonPrimary v-if="!processing" @click="useCopyText(textToTransform)" class="ml-2"><i class="fas fa-copy mr-2"></i> COPY</AppButtonPrimary>
+                                    <AppButtonPrimary class="w-100" v-if="!processing" @click="countText">COUNT</AppButtonPrimary>
                                     <AppLoader v-else class="mx-auto mt-2" />
                                 </div>
                             </div>

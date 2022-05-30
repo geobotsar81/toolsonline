@@ -6,6 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\Tools\LoremIpsumController;
 use App\Http\Controllers\Tools\CaseConverterController;
 use App\Http\Controllers\Tools\LoanCalculatorController;
+use App\Http\Controllers\Tools\TextCounterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,16 @@ Route::prefix("/tools")
                 Route::get("/uppercase-to-lowercase-converter", [CaseConverterController::class, "toLowercase"])->name("to-lowercase.show");
                 Route::get("/sentence-case-converter", [CaseConverterController::class, "toSentence"])->name("to-sentencecase.show");
                 Route::get("/word-case-converter", [CaseConverterController::class, "toWord"])->name("to-wordcase.show");
+            });
+
+        //Text Counter
+        Route::prefix("/text-counter")
+            ->name("text-counter.")
+            ->group(function () {
+                Route::get("/lines-counter", [TextCounterController::class, "linesCounter"])->name("lines-counter.show");
+                Route::get("/sentences-counter", [TextCounterController::class, "sentencesCounter"])->name("sentences-counter.show");
+                Route::get("/words-counter", [TextCounterController::class, "wordsCounter"])->name("words-counter.show");
+                Route::get("/characters-counter", [TextCounterController::class, "charactersCounters"])->name("characters-counter.show");
             });
     });
 

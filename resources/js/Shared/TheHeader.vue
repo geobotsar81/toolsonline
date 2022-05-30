@@ -69,7 +69,32 @@ const logout = () => {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="bg-white text-gray-600 text-left"></div>
+                                            <div class="bg-white text-gray-600 text-left">
+                                                <div class="font-bold text-lg">Text Counters</div>
+                                                <div class="w-32 ml-0"><hr class="mt-1 mb-2 border-t-2 border-t-red-500 border-dashed" /></div>
+                                                <ul class="inline-block">
+                                                    <li class="mt-1">
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.text-counter.lines-counter.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Lines Counter</AppLink
+                                                        >
+                                                    </li>
+                                                    <li class="mt-1">
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.text-counter.sentences-counter.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Sentences Counter</AppLink
+                                                        >
+                                                    </li>
+                                                    <li class="mt-1">
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.text-counter.words-counter.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Words Counter</AppLink
+                                                        >
+                                                    </li>
+                                                    <li class="mt-1">
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.text-counter.characters-counter.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Characters Counter</AppLink
+                                                        >
+                                                    </li>
+                                                </ul>
+                                            </div>
                                             <div class="bg-white text-gray-600 text-left"></div>
                                         </div>
                                     </template>
