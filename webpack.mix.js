@@ -13,19 +13,12 @@ const mix = require("laravel-mix");
 
 mix.js("resources/js/app.js", "public/js")
     .vue()
-    .postCss("resources/css/app.css", "public/css", [
-        require("postcss-import"),
-        require("tailwindcss"),
-    ])
+    .postCss("resources/css/app.css", "public/css", [require("postcss-import"), require("tailwindcss")])
     .alias({
         "@": "resources/js",
     });
 
-mix.browserSync({
-    proxy: "172.21.0.8172.20.0.4",
-    host: "localhost",
-    notify: false,
-});
+mix.browserSync();
 
 if (mix.inProduction()) {
     mix.version();
