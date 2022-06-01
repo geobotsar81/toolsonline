@@ -1010,6 +1010,69 @@
     "mem" "^8.0.0"
     "php-parser" "3.1.0-beta.5"
 
+"@sentry/browser@7.0.0":
+  "integrity" "sha512-XJeQA/CIocrmShpfVcccJ2RvZbWZy+OustSbgLP5Vk+ZnzbqKQo1zQ92jO/dUoVIsl5dWpUaOKfT6gXmORf4vQ=="
+  "resolved" "https://registry.npmjs.org/@sentry/browser/-/browser-7.0.0.tgz"
+  "version" "7.0.0"
+  dependencies:
+    "@sentry/core" "7.0.0"
+    "@sentry/types" "7.0.0"
+    "@sentry/utils" "7.0.0"
+    "tslib" "^1.9.3"
+
+"@sentry/core@7.0.0":
+  "integrity" "sha512-Wl7MjmahLhuzzByYiWaYTeHKQfF6usnMp+rTTYTBbneuM4MD7TikRt6ybgnxqyqR7nI7ADH/U8OljtiqwnsOcw=="
+  "resolved" "https://registry.npmjs.org/@sentry/core/-/core-7.0.0.tgz"
+  "version" "7.0.0"
+  dependencies:
+    "@sentry/hub" "7.0.0"
+    "@sentry/types" "7.0.0"
+    "@sentry/utils" "7.0.0"
+    "tslib" "^1.9.3"
+
+"@sentry/hub@7.0.0":
+  "integrity" "sha512-my4s+SPZiL6BKOK89YNk74QFRejlwVKKSetzz+Wr1cxDLbGXOIHS3uRJlagqOpfthhD1dq8m3WBQnabPf5JlHQ=="
+  "resolved" "https://registry.npmjs.org/@sentry/hub/-/hub-7.0.0.tgz"
+  "version" "7.0.0"
+  dependencies:
+    "@sentry/types" "7.0.0"
+    "@sentry/utils" "7.0.0"
+    "tslib" "^1.9.3"
+
+"@sentry/tracing@^7.0.0":
+  "integrity" "sha512-eUHER2RWzm9OtFKQZIr5EwTGM3IU0xJ7l60rnAEbgW5b1bzWC0k/J6EeXeBBfGq7wric/BjH0WKQOnixtXUBpw=="
+  "resolved" "https://registry.npmjs.org/@sentry/tracing/-/tracing-7.0.0.tgz"
+  "version" "7.0.0"
+  dependencies:
+    "@sentry/hub" "7.0.0"
+    "@sentry/types" "7.0.0"
+    "@sentry/utils" "7.0.0"
+    "tslib" "^1.9.3"
+
+"@sentry/types@7.0.0":
+  "integrity" "sha512-im6iugKKyeOwHWiS3u+S+Ox4F6aJQ2fe76rzTDTlzdCPol4xEqYnB2kujGVVnDYrODR+qVb24ua3OsxXxwzppA=="
+  "resolved" "https://registry.npmjs.org/@sentry/types/-/types-7.0.0.tgz"
+  "version" "7.0.0"
+
+"@sentry/utils@7.0.0":
+  "integrity" "sha512-wmZNwzl1F/xCvaGX0TLz0+M+mZP8kn5woF770o2eUgXGURIuNsnSd0Vfi0nHuBJfngVeI/3+ofOJ9MH4Co4lIw=="
+  "resolved" "https://registry.npmjs.org/@sentry/utils/-/utils-7.0.0.tgz"
+  "version" "7.0.0"
+  dependencies:
+    "@sentry/types" "7.0.0"
+    "tslib" "^1.9.3"
+
+"@sentry/vue@^7.0.0":
+  "integrity" "sha512-Qu9kUwVPD1wBNO7bZychc2YtDcixxsAFrPeGNWHs8ZQPshxawB/b7eottpCUDHoPec17iyGJSGDmqRzfvO7LcA=="
+  "resolved" "https://registry.npmjs.org/@sentry/vue/-/vue-7.0.0.tgz"
+  "version" "7.0.0"
+  dependencies:
+    "@sentry/browser" "7.0.0"
+    "@sentry/core" "7.0.0"
+    "@sentry/types" "7.0.0"
+    "@sentry/utils" "7.0.0"
+    "tslib" "^1.9.3"
+
 "@socket.io/component-emitter@~3.1.0":
   "integrity" "sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg=="
   "resolved" "https://registry.npmjs.org/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz"
@@ -5808,6 +5871,11 @@
   dependencies:
     "punycode" "^2.1.0"
 
+"tslib@^1.9.3":
+  "integrity" "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
+  "version" "1.14.1"
+
 "tslib@^2.0.3":
   "integrity" "sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
@@ -5959,7 +6027,7 @@
     "hash-sum" "^1.0.2"
     "loader-utils" "^1.0.2"
 
-"vue@^2.6.14 || ^3.2.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.31", "vue@3.2.33":
+"vue@^2.6.14 || ^3.2.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.31", "vue@2.x || 3.x", "vue@3.2.33":
   "integrity" "sha512-si1ExAlDUrLSIg/V7D/GgA4twJwfsfgG+t9w10z38HhL/HA07132pUQ2KuwAo8qbCyMJ9e6OqrmWrOCr+jW7ZQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.33.tgz"
   "version" "3.2.33"
