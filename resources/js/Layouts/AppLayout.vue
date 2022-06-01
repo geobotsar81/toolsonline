@@ -19,6 +19,13 @@ import JetDropdownLink from "@/Jetstream/DropdownLink.vue";
 import JetNavLink from "@/Jetstream/NavLink.vue";
 import JetResponsiveNavLink from "@/Jetstream/ResponsiveNavLink.vue";
 
+Inertia.on("navigate", (event) => {
+    dataLayer.push({
+        url: event.detail.page.url,
+        event: "pageview",
+    });
+});
+
 defineProps({
     title: String,
     description: String,

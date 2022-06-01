@@ -4,6 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/apple-touch-icon.png') }}" />
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/favicon-32x32.png') }}" />
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/favicon-16x16.png') }}" />
+        <link rel="mask-icon" href="{{ asset('assets/img/favicons/safari-pinned-tab.svg') }}" color="#5bbad5" />
+        <link rel="shortcut icon" href="{{ asset('assets/img/favicons/favicon.ico') }}" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="msapplication-config" content="{{ asset('assets/img/favicons/browserconfig.xml') }}" />
+        <meta name="theme-color" content="#ffffff" />
+        
         <title inertia="title">{{ $title ?? 'FreeOnlineTools' }}</title>
         <meta inertia="description" name="description" content="{{ !empty($description) ? $description : 'Find a wide variety of online tools and calculators' }}" />
 
@@ -12,11 +21,11 @@
         <meta inertia="og:url" property="og:url" content="{{ URL::current(); }}" />
         <meta inertia="og:site_name" property="og:site_name" content="{{ config('name') }}" />
         <meta inertia="og:description" property="og:description" content="{{ !empty($description) ? $description : 'Find a wide variety of online tools and calculators' }}" />
-        <meta inertia="og:image" property="og:image" content="{{ !empty($ogImage) ? asset('img/'.$ogImage) : asset('img/ogimage.jpg') }}" />
+        <meta inertia="og:image" property="og:image" content="{{ !empty($ogImage) ? asset('assets/img/'.$ogImage) : asset('assets/img/ogimage.jpg') }}" />
         <meta inertia="twitter:card" name="twitter:card" content="summary" />
         <meta inertia="twitter:title" name="twitter:title" content=" {{ !empty($title) ? $title : 'FreeOnlineTools' }}" />
         <meta inertia="twitter:description" name="twitter:description" content="{{ !empty($description) ? $description : 'Find a wide variety of online tools and calculators' }}" />
-        <meta inertia="twitter:image" name="twitter:image:src" content="{{ !empty($ogImage) ? asset('img/'.$ogImage) : asset('img/ogimage.jpg') }}" />
+        <meta inertia="twitter:image" name="twitter:image:src" content="{{ !empty($ogImage) ? asset('assets/img/'.$ogImage) : asset('assets/img/ogimage.jpg') }}" />
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -24,6 +33,16 @@
         
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMED8XVFVT"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZMED8XVFVT');
+        </script>
 
         <!-- Scripts -->
         @routes
