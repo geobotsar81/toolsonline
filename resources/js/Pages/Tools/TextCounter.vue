@@ -20,46 +20,14 @@ import { usePage } from "@inertiajs/inertia-vue3";
 
 const publicUrl = computed(() => usePage().props.value.publicUrl);
 const pageMeta = computed(() => usePage().props.value.pageMeta);
-const mainStore = useMainStore();
-
-const countType = computed(() => usePage().props.value.countType);
-
+const relatedTools = computed(() => usePage().props.value.counters);
+const countType = pageMeta.value.countType;
 const textToTransform = ref("");
 const errorMessage = ref(null);
 const processing = ref(false);
 const countResult = ref("");
 const countDescription = ref("");
-
-const relatedTools = ref([
-    {
-        url: route("tools.text-counter.lines-counter.show"),
-        icon: "fal fa-abacus",
-        title: "Lines Counter",
-        description: "Count number of lines in a given text",
-    },
-    {
-        url: route("tools.text-counter.sentences-counter.show"),
-        icon: "fal fa-abacus",
-        title: "Sentences Counter",
-        description: "Count number of sentences in a given text",
-    },
-    {
-        url: route("tools.text-counter.words-counter.show"),
-        icon: "fal fa-abacus",
-        title: "Words Counter",
-        description: "Count number of words in a given text",
-    },
-    {
-        url: route("tools.text-counter.characters-counter.show"),
-        icon: "fal fa-abacus",
-        title: "Characters Counter",
-        description: "Count number of characters in a given text",
-    },
-]);
-
-_.remove(relatedTools.value, function (n) {
-    return n.url == pageMeta.value.url;
-});
+const mainStore = useMainStore();
 
 const countText = _.debounce(() => {
     errorMessage.value = "";
@@ -68,24 +36,24 @@ const countText = _.debounce(() => {
     let text = textToTransform.value;
 
     try {
-        if (countType.value == "lines") {
+        if (countType == "lines") {
             const lines = text.split(/\r|\r\n|\n/);
             countResult.value = lines.length;
             countDescription.value = "lines counted";
         }
-        if (countType.value == "sentences") {
+        if (countType == "sentences") {
             const sentences = text.match(/[\w|\)][.?!](\s|$)/g);
             countResult.value = sentences.length;
             countDescription.value = "sentences counted";
         }
-        if (countType.value == "words") {
+        if (countType == "words") {
             const arr = text.split(" ");
 
             countResult.value = arr.filter((word) => word !== "").length;
             countDescription.value = "words counted";
         }
 
-        if (countType.value == "characters") {
+        if (countType == "characters") {
             countResult.value = text.length;
             countDescription.value = "characters counted";
         }
@@ -139,9 +107,11 @@ const countText = _.debounce(() => {
                     <AppH2>Related Tools</AppH2>
                 </div>
                 <div class="grid grid-cols-12 gap-4 mt-8">
-                    <div v-for="(tool, index) in relatedTools" :key="index" class="col-span-12 md:col-span-6 lg:col-span-4">
-                        <AppCard :url="tool.url" :icon="tool.icon" :title="tool.title" :content="tool.description"> </AppCard>
-                    </div>
+                    <template v-for="(tool, index) in relatedTools" :key="index">
+                        <div v-if="index != countType" class="col-span-12 md:col-span-6 lg:col-span-4">
+                            <AppCard :url="tool.url" :icon="tool.icon" :title="tool.title" :content="tool.description"> </AppCard>
+                        </div>
+                    </template>
                 </div>
             </template>
         </div>

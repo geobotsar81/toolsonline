@@ -20,44 +20,12 @@ import { usePage } from "@inertiajs/inertia-vue3";
 
 const publicUrl = computed(() => usePage().props.value.publicUrl);
 const pageMeta = computed(() => usePage().props.value.pageMeta);
-const mainStore = useMainStore();
-
-const convertType = computed(() => usePage().props.value.convertType);
-
+const relatedTools = computed(() => usePage().props.value.converters);
+const convertType = pageMeta.value.convertType;
 const textToTransform = ref("");
 const errorMessage = ref(null);
 const processing = ref(false);
-
-const relatedTools = ref([
-    {
-        url: route("tools.case-converter.to-uppercase.show"),
-        icon: "fal fa-text",
-        title: "lowercase to UPPERCASE",
-        description: "Convert your text from lowercase to uppercase",
-    },
-    {
-        url: route("tools.case-converter.to-lowercase.show"),
-        icon: "fal fa-text",
-        title: "UPPERCASE to lowercase",
-        description: "Convert your text from uppercase to lowercase",
-    },
-    {
-        url: route("tools.case-converter.to-sentencecase.show"),
-        icon: "fal fa-text",
-        title: "Sentence case",
-        description: "Convert your text to sentence case",
-    },
-    {
-        url: route("tools.case-converter.to-wordcase.show"),
-        icon: "fal fa-text",
-        title: "Word Case",
-        description: "Capitalise each word",
-    },
-]);
-
-_.remove(relatedTools.value, function (n) {
-    return n.url == pageMeta.value.url;
-});
+const mainStore = useMainStore();
 
 const convertText = _.debounce(() => {
     errorMessage.value = "";
@@ -66,13 +34,13 @@ const convertText = _.debounce(() => {
     let text = textToTransform.value;
 
     try {
-        if (convertType.value == "to-uppercase") {
+        if (convertType == "to-uppercase") {
             text = text.toUpperCase();
         }
-        if (convertType.value == "to-lowercase") {
+        if (convertType == "to-lowercase") {
             text = text.toLowerCase();
         }
-        if (convertType.value == "to-sentencecase") {
+        if (convertType == "to-sentencecase") {
             const sentences = text.split(".");
             let newtext = "";
             sentences.forEach((sentence) => {
@@ -83,7 +51,7 @@ const convertText = _.debounce(() => {
             text = newtext;
         }
 
-        if (convertType.value == "to-wordcase") {
+        if (convertType == "to-wordcase") {
             const words = text.split(" ");
 
             for (let i = 0; i < words.length; i++) {
@@ -142,9 +110,11 @@ const convertText = _.debounce(() => {
                     <AppH2>Related Tools</AppH2>
                 </div>
                 <div class="grid grid-cols-12 gap-4 mt-8">
-                    <div v-for="(tool, index) in relatedTools" :key="index" class="col-span-12 md:col-span-6 lg:col-span-4">
-                        <AppCard :url="tool.url" :icon="tool.icon" :title="tool.title" :content="tool.description"> </AppCard>
-                    </div>
+                    <template v-for="(tool, index) in relatedTools" :key="index">
+                        <div v-if="index != convertType" class="col-span-12 md:col-span-6 lg:col-span-4">
+                            <AppCard :url="tool.url" :icon="tool.icon" :title="tool.title" :content="tool.description"> </AppCard>
+                        </div>
+                    </template>
                 </div>
             </template>
         </div>

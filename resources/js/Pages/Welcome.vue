@@ -58,7 +58,7 @@ defineProps({
                     </AppCard>
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-4">
-                    <AppCard :url="route('tools.text-counter.lines-counter.show')" icon="fal fa-abacus" title="Text Count" content="Count lines, sentences, words or characters"> </AppCard>
+                    <AppCard :url="route('tools.text-counter.lines-counter.show')" icon="fal fa-abacus" title="Text Counters" content="Count lines, sentences, words or characters"> </AppCard>
                 </div>
             </div>
         </div>

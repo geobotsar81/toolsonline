@@ -38888,38 +38888,14 @@ __webpack_require__.r(__webpack_exports__);
     var pageMeta = (0,vue__WEBPACK_IMPORTED_MODULE_14__.computed)(function () {
       return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_15__.usePage)().props.value.pageMeta;
     });
-    var mainStore = (0,_Stores_mainStore__WEBPACK_IMPORTED_MODULE_13__.useMainStore)();
-    var convertType = (0,vue__WEBPACK_IMPORTED_MODULE_14__.computed)(function () {
-      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_15__.usePage)().props.value.convertType;
+    var relatedTools = (0,vue__WEBPACK_IMPORTED_MODULE_14__.computed)(function () {
+      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_15__.usePage)().props.value.converters;
     });
+    var convertType = pageMeta.value.convertType;
     var textToTransform = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)("");
     var errorMessage = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(null);
     var processing = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(false);
-    var relatedTools = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)([{
-      url: route("tools.case-converter.to-uppercase.show"),
-      icon: "fal fa-text",
-      title: "lowercase to UPPERCASE",
-      description: "Convert your text from lowercase to uppercase"
-    }, {
-      url: route("tools.case-converter.to-lowercase.show"),
-      icon: "fal fa-text",
-      title: "UPPERCASE to lowercase",
-      description: "Convert your text from uppercase to lowercase"
-    }, {
-      url: route("tools.case-converter.to-sentencecase.show"),
-      icon: "fal fa-text",
-      title: "Sentence case",
-      description: "Convert your text to sentence case"
-    }, {
-      url: route("tools.case-converter.to-wordcase.show"),
-      icon: "fal fa-text",
-      title: "Word Case",
-      description: "Capitalise each word"
-    }]);
-
-    _.remove(relatedTools.value, function (n) {
-      return n.url == pageMeta.value.url;
-    });
+    var mainStore = (0,_Stores_mainStore__WEBPACK_IMPORTED_MODULE_13__.useMainStore)();
 
     var convertText = _.debounce(function () {
       errorMessage.value = "";
@@ -38927,15 +38903,15 @@ __webpack_require__.r(__webpack_exports__);
       var text = textToTransform.value;
 
       try {
-        if (convertType.value == "to-uppercase") {
+        if (convertType == "to-uppercase") {
           text = text.toUpperCase();
         }
 
-        if (convertType.value == "to-lowercase") {
+        if (convertType == "to-lowercase") {
           text = text.toLowerCase();
         }
 
-        if (convertType.value == "to-sentencecase") {
+        if (convertType == "to-sentencecase") {
           var sentences = text.split(".");
           var newtext = "";
           sentences.forEach(function (sentence) {
@@ -38946,7 +38922,7 @@ __webpack_require__.r(__webpack_exports__);
           text = newtext;
         }
 
-        if (convertType.value == "to-wordcase") {
+        if (convertType == "to-wordcase") {
           var words = text.split(" ");
 
           for (var i = 0; i < words.length; i++) {
@@ -38970,12 +38946,12 @@ __webpack_require__.r(__webpack_exports__);
     var __returned__ = {
       publicUrl: publicUrl,
       pageMeta: pageMeta,
-      mainStore: mainStore,
+      relatedTools: relatedTools,
       convertType: convertType,
       textToTransform: textToTransform,
       errorMessage: errorMessage,
       processing: processing,
-      relatedTools: relatedTools,
+      mainStore: mainStore,
       convertText: convertText,
       AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       AppWhiteContainer: _Shared_AppWhiteContainer_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -39366,40 +39342,16 @@ __webpack_require__.r(__webpack_exports__);
     var pageMeta = (0,vue__WEBPACK_IMPORTED_MODULE_14__.computed)(function () {
       return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_15__.usePage)().props.value.pageMeta;
     });
-    var mainStore = (0,_Stores_mainStore__WEBPACK_IMPORTED_MODULE_13__.useMainStore)();
-    var countType = (0,vue__WEBPACK_IMPORTED_MODULE_14__.computed)(function () {
-      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_15__.usePage)().props.value.countType;
+    var relatedTools = (0,vue__WEBPACK_IMPORTED_MODULE_14__.computed)(function () {
+      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_15__.usePage)().props.value.counters;
     });
+    var countType = pageMeta.value.countType;
     var textToTransform = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)("");
     var errorMessage = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(null);
     var processing = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)(false);
     var countResult = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)("");
     var countDescription = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)("");
-    var relatedTools = (0,vue__WEBPACK_IMPORTED_MODULE_14__.ref)([{
-      url: route("tools.text-counter.lines-counter.show"),
-      icon: "fal fa-abacus",
-      title: "Lines Counter",
-      description: "Count number of lines in a given text"
-    }, {
-      url: route("tools.text-counter.sentences-counter.show"),
-      icon: "fal fa-abacus",
-      title: "Sentences Counter",
-      description: "Count number of sentences in a given text"
-    }, {
-      url: route("tools.text-counter.words-counter.show"),
-      icon: "fal fa-abacus",
-      title: "Words Counter",
-      description: "Count number of words in a given text"
-    }, {
-      url: route("tools.text-counter.characters-counter.show"),
-      icon: "fal fa-abacus",
-      title: "Characters Counter",
-      description: "Count number of characters in a given text"
-    }]);
-
-    _.remove(relatedTools.value, function (n) {
-      return n.url == pageMeta.value.url;
-    });
+    var mainStore = (0,_Stores_mainStore__WEBPACK_IMPORTED_MODULE_13__.useMainStore)();
 
     var countText = _.debounce(function () {
       errorMessage.value = "";
@@ -39407,19 +39359,19 @@ __webpack_require__.r(__webpack_exports__);
       var text = textToTransform.value;
 
       try {
-        if (countType.value == "lines") {
+        if (countType == "lines") {
           var lines = text.split(/\r|\r\n|\n/);
           countResult.value = lines.length;
           countDescription.value = "lines counted";
         }
 
-        if (countType.value == "sentences") {
+        if (countType == "sentences") {
           var sentences = text.match(/[\w|\)][.?!](\s|$)/g);
           countResult.value = sentences.length;
           countDescription.value = "sentences counted";
         }
 
-        if (countType.value == "words") {
+        if (countType == "words") {
           var arr = text.split(" ");
           countResult.value = arr.filter(function (word) {
             return word !== "";
@@ -39427,7 +39379,7 @@ __webpack_require__.r(__webpack_exports__);
           countDescription.value = "words counted";
         }
 
-        if (countType.value == "characters") {
+        if (countType == "characters") {
           countResult.value = text.length;
           countDescription.value = "characters counted";
         }
@@ -39444,14 +39396,14 @@ __webpack_require__.r(__webpack_exports__);
     var __returned__ = {
       publicUrl: publicUrl,
       pageMeta: pageMeta,
-      mainStore: mainStore,
+      relatedTools: relatedTools,
       countType: countType,
       textToTransform: textToTransform,
       errorMessage: errorMessage,
       processing: processing,
       countResult: countResult,
       countDescription: countDescription,
-      relatedTools: relatedTools,
+      mainStore: mainStore,
       countText: countText,
       AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       AppWhiteContainer: _Shared_AppWhiteContainer_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -44196,6 +44148,10 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_16 = {
   "class": "grid grid-cols-12 gap-4 mt-8"
 };
+var _hoisted_17 = {
+  key: 0,
+  "class": "col-span-12 md:col-span-6 lg:col-span-4"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AppLayout"], {
     title: $setup.pageMeta.title,
@@ -44276,17 +44232,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* STABLE */
 
       })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.relatedTools, function (tool, index) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-          key: index,
-          "class": "col-span-12 md:col-span-6 lg:col-span-4"
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AppCard"], {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+          key: index
+        }, [index != $setup.convertType ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AppCard"], {
           url: tool.url,
           icon: tool.icon,
           title: tool.title,
           content: tool.description
         }, null, 8
         /* PROPS */
-        , ["url", "icon", "title", "content"])]);
+        , ["url", "icon", "title", "content"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
+        /* STABLE_FRAGMENT */
+        );
       }), 128
       /* KEYED_FRAGMENT */
       ))])], 64
@@ -44879,6 +44836,10 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_16 = {
   "class": "grid grid-cols-12 gap-4 mt-8"
 };
+var _hoisted_17 = {
+  key: 0,
+  "class": "col-span-12 md:col-span-6 lg:col-span-4"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AppLayout"], {
     title: $setup.pageMeta.title,
@@ -44950,17 +44911,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* STABLE */
 
       })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.relatedTools, function (tool, index) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-          key: index,
-          "class": "col-span-12 md:col-span-6 lg:col-span-4"
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AppCard"], {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+          key: index
+        }, [index != $setup.countType ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AppCard"], {
           url: tool.url,
           icon: tool.icon,
           title: tool.title,
           content: tool.description
         }, null, 8
         /* PROPS */
-        , ["url", "icon", "title", "content"])]);
+        , ["url", "icon", "title", "content"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
+        /* STABLE_FRAGMENT */
+        );
       }), 128
       /* KEYED_FRAGMENT */
       ))])], 64
@@ -45118,7 +45080,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       , ["url"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AppCard"], {
         url: _ctx.route('tools.text-counter.lines-counter.show'),
         icon: "fal fa-abacus",
-        title: "Text Count",
+        title: "Text Counters",
         content: "Count lines, sentences, words or characters"
       }, null, 8
       /* PROPS */
@@ -71630,7 +71592,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "skipHydrate": () => (/* binding */ skipHydrate),
 /* harmony export */   "storeToRefs": () => (/* binding */ storeToRefs)
 /* harmony export */ });
-/* harmony import */ var vue_demi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-demi */ "./node_modules/pinia/node_modules/vue-demi/lib/index.mjs");
+/* harmony import */ var vue_demi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-demi */ "./node_modules/vue-demi/lib/index.mjs");
 /* harmony import */ var _vue_devtools_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/devtools-api */ "./node_modules/@vue/devtools-api/lib/esm/index.js");
 /*!
   * pinia v2.0.14
@@ -80239,10 +80201,10 @@ webpackContext.id = "./resources/js/Pages sync recursive ^\\.\\/.*\\.vue$";
 
 /***/ }),
 
-/***/ "./node_modules/pinia/node_modules/vue-demi/lib/index.mjs":
-/*!****************************************************************!*\
-  !*** ./node_modules/pinia/node_modules/vue-demi/lib/index.mjs ***!
-  \****************************************************************/
+/***/ "./node_modules/vue-demi/lib/index.mjs":
+/*!*********************************************!*\
+  !*** ./node_modules/vue-demi/lib/index.mjs ***!
+  \*********************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
