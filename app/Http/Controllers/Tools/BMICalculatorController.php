@@ -11,24 +11,23 @@ use App\Http\Controllers\Controller;
 class BMICalculatorController extends Controller
 {
     /**
-     * Show Loan Calculator
+     * Show BMI Calculator
      *
      * @return Response
      */
     public function show(): Response
     {
         $page = [
-            "title" => "Loan Calculator",
-            "description" =>
-                "Determine the monthly payments on a loan. Simply enter the loan amount, term and interest rate in the fields below and click calculate. It can be used for mortgage, auto, or any other fixed loan types.",
-            "url" => route("tools.loan-calculator.show"),
+            "title" => "BMI Calculator",
+            "description" => "Determine your Body Mass Index.",
+            "url" => route("tools.bmi-calculator.show"),
         ];
 
-        return Inertia::render("Tools/LoanCalculator", ["pageMeta" => $page])->withViewData($page);
+        return Inertia::render("Tools/BMICalculator", ["pageMeta" => $page])->withViewData($page);
     }
 
     /**
-     * Calculate loan amount
+     * Calculate BMI
      *
      * @param Request $request
      * @return JsonResponse
@@ -36,37 +35,20 @@ class BMICalculatorController extends Controller
     public function calculate(Request $request): JsonResponse
     {
         $request->validate([
-            "loanAmount" => "required|numeric",
-            "loanDuration" => "required|numeric",
-            "loanInterestRate" => "required|numeric",
+            "bmiHeight" => "required|numeric",
+            "bmiWeight" => "required|numeric",
+            "bmiAge" => "required|numeric",
             "honeypot" => "present|max:0",
         ]);
 
-        $loanAmount = $request->get("loanAmount");
-        $loanDuration = $request->get("loanDuration");
-        $loanDurationType = $request->get("loanDurationType");
-        $loanInterestRate = $request->get("loanInterestRate");
-
-        //$loanResult =  P (r (1+r)^n) / ( (1+r)^n -1 );
-
-        $loanRate = $loanInterestRate / 12 / 100;
-        $loanPeriod = $loanDurationType == "years" ? $loanDuration * 12 : $loanDuration;
-        $firstOperand = $loanRate * pow(1 + $loanRate, $loanPeriod);
-        $secondOperand = pow(1 + $loanRate, $loanPeriod) - 1;
-
-        debug($loanRate);
-        debug($loanPeriod);
-        debug($firstOperand);
-        debug($secondOperand);
-
-        $loanMonthly = $loanAmount * ($firstOperand / $secondOperand);
-        $loanTotal = $loanMonthly * $loanPeriod;
-        $loanInterestPaid = $loanTotal - $loanAmount;
+        $bmiHeight = $request->get("bmiHeight");
+        $bmiWeight = $request->get("bmiWeight");
+        $bmiUnit = $request->get("bmiUnit");
+        $bmiAge = $request->get("bmiAge");
 
         return response()->json([
-            "loanMonthly" => number_format($loanMonthly, 2, ".", ","),
-            "loanTotal" => number_format($loanTotal, 2, ".", ","),
-            "loanInterestPaid" => number_format($loanInterestPaid, 2, ".", ","),
+            "bmiResult" => "",
+            "bmiDescription" => "",
         ]);
     }
 }

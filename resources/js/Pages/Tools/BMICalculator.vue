@@ -18,48 +18,41 @@ import { useMainStore } from "@/Stores/mainStore";
 import { ref, computed, onMounted } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
 
-const publicUrl = computed(() => usePage().props.value.publicUrl);
 const pageMeta = computed(() => usePage().props.value.pageMeta);
 
-const loanAmount = ref(5000);
-const loanDurationType = ref("months");
-const loanDuration = ref(60);
-const loanCurrency = ref("$");
-const loanInterestRate = ref(4.5);
+const bmiHeight = ref(180);
+const bmiWeight = ref(65);
+const bmiUnit = ref("Metric Units");
+const bmiAge = ref(25);
 
 const honeypot = ref(null);
-const loanMonthly = ref(null);
-const loanTotal = ref(null);
-const loanInterestPaid = ref(null);
+const bmiResult = ref(null);
 
 const errorMessage = ref(null);
 const processing = ref(false);
 
-const options = ["months", "years"];
-const currencyOptions = ["$", "€", "£"];
+const unitsOptions = ["Metric Units", "US Units"];
 
 const mainStore = useMainStore();
 
 onMounted(() => {
-    calculateLoan();
+    calculateBMI();
 });
 
-const calculateLoan = _.debounce(() => {
+const calculateBMI = _.debounce(() => {
     errorMessage.value = "";
     processing.value = true;
 
     axios
-        .post(route("tools.loan-calculator.calculate"), {
-            loanAmount: loanAmount.value,
-            loanDuration: loanDuration.value,
-            loanDurationType: loanDurationType.value,
-            loanInterestRate: loanInterestRate.value,
+        .post(route("tools.bmi-calculator.calculate"), {
+            bmiHeight: bmiHeight.value,
+            bmiWeight: bmiWeight.value,
+            bmiUnit: bmiUnit.value,
+            bmiAge: bmiAge.value,
             honeypot: honeypot.value,
         })
         .then((response) => {
-            loanMonthly.value = response.data.loanMonthly;
-            loanInterestPaid.value = response.data.loanInterestPaid;
-            loanTotal.value = response.data.loanTotal;
+            bmiResult.value = response.data.bmiResult;
             processing.value = false;
         })
         .catch((error) => {
@@ -71,7 +64,7 @@ const calculateLoan = _.debounce(() => {
                 }
             }
             processing.value = false;
-            mainStore.toastAppear("Could not calculate loan", "error");
+            mainStore.toastAppear("Could not calculate BMI", "error");
         });
 }, 200);
 </script>
@@ -104,43 +97,36 @@ const calculateLoan = _.debounce(() => {
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-12 gap-x-2">
-                                    <div class="col-span-3 mb-4">
-                                        <AppLabel label="Currency" for="loanCurrency" />
-                                        <AppSelect :options="currencyOptions" name="loanCurrency" v-model="loanCurrency" />
+                                    <div class="col-span-12 mb-4">
+                                        <AppLabel label="Units" for="bmiUnit" />
+                                        <AppSelect :options="unitsOptions" name="bmiUnit" v-model="bmiUnit" />
                                     </div>
-                                    <div class="col-span-9 mb-4">
-                                        <AppLabel label="Loan amount" for="loanAmount" />
-                                        <AppInput name="loanAmount" v-model="loanAmount" />
+                                    <div class="col-span-12 mb-4">
+                                        <AppLabel label="Height" for="bmiHeight" />
+                                        <AppInput name="bmiHeight" v-model="bmiHeight" />
                                     </div>
-                                    <div class="col-span-6 mb-4">
-                                        <AppLabel label="Loan term" for="loanDuration" />
-                                        <AppInput name="loanDuration" v-model="loanDuration" />
+                                    <div class="col-span-12 mb-4">
+                                        <AppLabel label="Weight" for="bmiWeight" />
+                                        <AppInput name="bmiWeight" v-model="bmiWeight" />
                                     </div>
-                                    <div class="col-span-6 3 mb-4">
-                                        <AppLabel label="in" for="loanDurationType" />
-                                        <AppSelect :options="options" name="loanDurationType" v-model="loanDurationType" />
-                                    </div>
-                                    <div class="col-span-6 mb-4">
-                                        <AppLabel label="Interest rate per year" for="loanInterestRate" />
-                                        <AppInput icon="fal fa-percentage" name="loanInterestRate" v-model="loanInterestRate" />
+                                    <div class="col-span-12 mb-4">
+                                        <AppLabel label="Age" for="bmiAge" />
+                                        <AppInput name="bmiAge" v-model="bmiAge" />
                                     </div>
                                     <div class="col-span-6">
-                                        <AppButtonPrimary extraClass="w-full" class="mt-6" v-if="!processing" @click="calculateLoan">CALCULATE</AppButtonPrimary>
+                                        <AppButtonPrimary extraClass="w-full" class="mt-6" v-if="!processing" @click="calculateBMI">CALCULATE</AppButtonPrimary>
                                         <AppLoader v-else class="mx-auto mt-8" />
                                     </div>
                                 </div>
                             </div>
                             <div class="p-6 text-center">
                                 <div class="grid grid-cols-12">
-                                    <div class="col-span-12 font-semibold mt-8 md:mt-0">Monthly payments</div>
-                                    <div class="col-span-12 mt-4 text-4xl mb-8 font-bold">{{ loanCurrency }} {{ loanMonthly }}</div>
-                                    <div class="col-span-6 text-left">Total repayable</div>
-                                    <div class="col-span-6 text-right">{{ loanCurrency }} {{ loanTotal }}</div>
+                                    <div class="col-span-12 font-semibold text-4xl mt-8 md:mt-0">BMI</div>
+                                    <div class="col-span-12 mt-8 md:mt-0">Your Body Mass Index is:</div>
+
                                     <div class="col-span-12 mt-2 mb-2">
                                         <hr class="border-gray-300" />
                                     </div>
-                                    <div class="col-span-6 text-left">Total interest payable</div>
-                                    <div class="col-span-6 text-right">{{ loanCurrency }} {{ loanInterestPaid }}</div>
                                 </div>
                             </div>
                         </div>

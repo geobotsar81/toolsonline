@@ -47,17 +47,10 @@ class LoanCalculatorController extends Controller
         $loanDurationType = $request->get("loanDurationType");
         $loanInterestRate = $request->get("loanInterestRate");
 
-        //$loanResult =  P (r (1+r)^n) / ( (1+r)^n -1 );
-
         $loanRate = $loanInterestRate / 12 / 100;
         $loanPeriod = $loanDurationType == "years" ? $loanDuration * 12 : $loanDuration;
         $firstOperand = $loanRate * pow(1 + $loanRate, $loanPeriod);
         $secondOperand = pow(1 + $loanRate, $loanPeriod) - 1;
-
-        debug($loanRate);
-        debug($loanPeriod);
-        debug($firstOperand);
-        debug($secondOperand);
 
         $loanMonthly = $loanAmount * ($firstOperand / $secondOperand);
         $loanTotal = $loanMonthly * $loanPeriod;

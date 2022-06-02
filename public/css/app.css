@@ -4019,6 +4019,9 @@ textarea.form-control.is-invalid {
 .col-span-9 {
   grid-column: span 9 / span 9;
 }
+.col-span-8 {
+  grid-column: span 8 / span 8;
+}
 .float-left {
   float: left;
 }
