@@ -34,6 +34,8 @@ class BMICalculatorController extends Controller
      */
     public function calculate(Request $request): JsonResponse
     {
+        $bmiResult = null;
+
         $request->validate([
             "bmiHeight" => "required|numeric",
             "bmiWeight" => "required|numeric",
@@ -42,13 +44,24 @@ class BMICalculatorController extends Controller
         ]);
 
         $bmiHeight = $request->get("bmiHeight");
+        $bmiHeight2 = $request->get("bmiHeight2");
         $bmiWeight = $request->get("bmiWeight");
         $bmiUnit = $request->get("bmiUnit");
         $bmiAge = $request->get("bmiAge");
 
+        if ($bmiUnit == "US Units") {
+            $bmiHeight = (($bmiHeight * 12 + $bmiHeight2) * 2.54) / 100;
+            $bmiWeight *= 0.453592;
+        } else {
+            $bmiHeight = $bmiHeight / 100;
+        }
+
+        $bmiResult = $bmiWeight / ($bmiHeight * $bmiHeight);
+
+        $bmiResult = round($bmiResult, 2);
+
         return response()->json([
-            "bmiResult" => "",
-            "bmiDescription" => "",
+            "bmiResult" => $bmiResult,
         ]);
     }
 }

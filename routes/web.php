@@ -23,6 +23,7 @@ use App\Http\Controllers\Tools\LoanCalculatorController;
 Route::get("/", [PageController::class, "showHome"])->name("home");
 Route::get("/contact", [PageController::class, "showContact"])->name("contact.show");
 Route::post("/contact", [PageController::class, "sendMail"])->name("contact.send");
+Route::get("/terms-and-conditions", [PageController::class, "showTerms"])->name("terms");
 
 Route::prefix("/tools")
     ->name("tools.")

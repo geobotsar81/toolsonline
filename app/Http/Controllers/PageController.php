@@ -23,6 +23,17 @@ class PageController extends Controller
         return Inertia::render("Welcome", ["pageMeta" => $page])->withViewData($page);
     }
 
+    public function showTerms()
+    {
+        $page = [
+            "title" => "Terms & Conditions",
+            "description" => "Find below the Terms & Conditions that apply to our website",
+            "url" => route("home"),
+        ];
+
+        return Inertia::render("TermsOfService", ["pageMeta" => $page])->withViewData($page);
+    }
+
     public function showAll()
     {
         $page = [
