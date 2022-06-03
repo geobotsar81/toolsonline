@@ -4,9 +4,10 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Tools\LoremIpsumController;
+use App\Http\Controllers\Tools\TextCounterController;
+use App\Http\Controllers\Tools\BMICalculatorController;
 use App\Http\Controllers\Tools\CaseConverterController;
 use App\Http\Controllers\Tools\LoanCalculatorController;
-use App\Http\Controllers\Tools\TextCounterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ use App\Http\Controllers\Tools\TextCounterController;
 Route::get("/", [PageController::class, "showHome"])->name("home");
 Route::get("/contact", [PageController::class, "showContact"])->name("contact.show");
 Route::post("/contact", [PageController::class, "sendMail"])->name("contact.send");
+Route::get("/terms-and-conditions", [PageController::class, "showTerms"])->name("terms");
 
 Route::prefix("/tools")
     ->name("tools.")
@@ -35,6 +37,10 @@ Route::prefix("/tools")
         //Loan Calculator
         Route::get("/loan-calculator", [LoanCalculatorController::class, "show"])->name("loan-calculator.show");
         Route::post("/loan-calculator", [LoanCalculatorController::class, "calculate"])->name("loan-calculator.calculate");
+
+        //Loan Calculator
+        Route::get("/bmi-calculator", [BMICalculatorController::class, "show"])->name("bmi-calculator.show");
+        Route::post("/bmi-calculator", [BMICalculatorController::class, "calculate"])->name("bmi-calculator.calculate");
 
         //Case Converters
         Route::prefix("/case-converter")

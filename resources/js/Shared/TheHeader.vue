@@ -41,6 +41,11 @@ const logout = () => {
                                                             ><i class="far fa-angle-right text-sm"></i> Loan Calculator</AppLink
                                                         >
                                                     </li>
+                                                    <li class="mt-1">
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.bmi-calculator.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> BMI Calculator</AppLink
+                                                        >
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="bg-white text-gray-600 text-left">

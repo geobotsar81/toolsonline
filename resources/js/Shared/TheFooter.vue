@@ -19,9 +19,9 @@ import AppH5 from "@/Shared/AppH5.vue";
                             <li>
                                 <AppLink :url="route('contact.show')"><i class="far fa-angle-right text-sm"></i> Contact</AppLink>
                             </li>
-                            <!--<li>
+                            <li>
                                 <AppLink :url="route('terms')"><i class="far fa-angle-right text-sm"></i> Terms & Conditions</AppLink>
-                            </li>-->
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -71,7 +71,7 @@ const calculateLoan = _.debounce(() => {
                 }
             }
             processing.value = false;
-            mainStore.toastAppear("Could calculate loan", "error");
+            mainStore.toastAppear("Could not calculate loan", "error");
         });
 }, 200);
 </script>
