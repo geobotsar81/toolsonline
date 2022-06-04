@@ -15,8 +15,8 @@ class PageController extends Controller
     public function showHome()
     {
         $page = [
-            "title" => "Welcome",
-            "description" => "FreeOnlineTools, the home of a variety of online tools",
+            "title" => "Welcome to FreeOnlineTools",
+            "description" => "Find a wide range of calculators and tools for your everyday needs",
             "url" => route("home"),
         ];
 
