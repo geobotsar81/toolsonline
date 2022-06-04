@@ -21,11 +21,11 @@
         <meta inertia="og:url" property="og:url" content="{{ URL::current(); }}" />
         <meta inertia="og:site_name" property="og:site_name" content="{{ config('name') }}" />
         <meta inertia="og:description" property="og:description" content="{{ !empty($description) ? $description : 'Find a wide variety of online tools and calculators' }}" />
-        <meta inertia="og:image" property="og:image" content="{{ !empty($ogImage) ? asset('assets/img/'.$ogImage) : asset('assets/img/ogimage.jpg') }}" />
+        <meta inertia="og:image" property="og:image" content="{{ !empty($ogImage) ? asset('assets/img/'.$ogImage) : asset('assets/img/ogImage.png') }}" />
         <meta inertia="twitter:card" name="twitter:card" content="summary" />
         <meta inertia="twitter:title" name="twitter:title" content=" {{ !empty($title) ? $title : 'FreeOnlineTools' }}" />
         <meta inertia="twitter:description" name="twitter:description" content="{{ !empty($description) ? $description : 'Find a wide variety of online tools and calculators' }}" />
-        <meta inertia="twitter:image" name="twitter:image:src" content="{{ !empty($ogImage) ? asset('assets/img/'.$ogImage) : asset('assets/img/ogimage.jpg') }}" />
+        <meta inertia="twitter:image" name="twitter:image:src" content="{{ !empty($ogImage) ? asset('assets/img/'.$ogImage) : asset('assets/img/ogImage.png') }}" />
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
