@@ -3,6 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Tools\LoremIpsumController;
 use App\Http\Controllers\Tools\TextCounterController;
 use App\Http\Controllers\Tools\BMICalculatorController;
