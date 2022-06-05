@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use Inertia\Response;
 use Illuminate\Http\Request;
 use App\Mail\ContactFormMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
 
 class PageController extends Controller
 {
-    public function showHome()
+    /**
+     * Show the Home Page
+     *
+     * @return Response
+     */
+    public function showHome(): Response
     {
         $page = [
             "title" => "Welcome to FreeOnlineTools",
@@ -23,18 +27,44 @@ class PageController extends Controller
         return Inertia::render("Welcome", ["pageMeta" => $page])->withViewData($page);
     }
 
-    public function showTerms()
+    /**
+     * Show the Terms and Conditions Page
+     *
+     * @return Response
+     */
+    public function showTerms(): Response
     {
         $page = [
             "title" => "Terms & Conditions",
             "description" => "Find below the Terms & Conditions that apply to our website",
-            "url" => route("home"),
+            "url" => route("terms"),
         ];
 
         return Inertia::render("TermsOfService", ["pageMeta" => $page])->withViewData($page);
     }
 
-    public function showAll()
+    /**
+     * Show the Privacy Policy Page
+     *
+     * @return Response
+     */
+    public function showPrivacy(): Response
+    {
+        $page = [
+            "title" => "Privacy Policy",
+            "description" => "Find below the Privacy Policy that applies to our website",
+            "url" => route("privacy"),
+        ];
+
+        return Inertia::render("PrivacyPolicy", ["pageMeta" => $page])->withViewData($page);
+    }
+
+    /**
+     * Show the All Tools Page
+     *
+     * @return Response
+     */
+    public function showAll(): Response
     {
         $page = [
             "title" => "All Tools/Calculators",
@@ -45,7 +75,12 @@ class PageController extends Controller
         return Inertia::render("AllTools", ["pageMeta" => $page])->withViewData($page);
     }
 
-    public function showContact()
+    /**
+     * Show the Contact Page
+     *
+     * @return Response
+     */
+    public function showContact(): Response
     {
         $page = [
             "title" => "Contact Us",
@@ -64,7 +99,7 @@ class PageController extends Controller
      */
     public function sendMail(Request $request): RedirectResponse
     {
-        $validated = $request->validate([
+        $request->validate([
             "contactName" => "required",
             "contactEmail" => "email:rfc,dns",
             "contactMessage" => "required",

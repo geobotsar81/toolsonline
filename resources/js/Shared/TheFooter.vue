@@ -13,14 +13,14 @@ import AppH5 from "@/Shared/AppH5.vue";
                             <li>
                                 <AppLink :url="route('home')"><i class="far fa-angle-right text-sm"></i> Home</AppLink>
                             </li>
-                            <!--<li>
-                                <AppLink :url="route('faq')"><i class="far fa-angle-right text-sm"></i> FAQ</AppLink>
-                            </li>-->
                             <li>
                                 <AppLink :url="route('contact.show')"><i class="far fa-angle-right text-sm"></i> Contact</AppLink>
                             </li>
                             <li>
                                 <AppLink :url="route('terms')"><i class="far fa-angle-right text-sm"></i> Terms & Conditions</AppLink>
+                            </li>
+                            <li>
+                                <AppLink :url="route('privacy')"><i class="far fa-angle-right text-sm"></i> Privacy Policy</AppLink>
                             </li>
                         </ul>
                     </div>

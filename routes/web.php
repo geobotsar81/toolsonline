@@ -25,6 +25,7 @@ Route::get("/", [PageController::class, "showHome"])->name("home");
 Route::get("/contact", [PageController::class, "showContact"])->name("contact.show");
 Route::post("/contact", [PageController::class, "sendMail"])->name("contact.send");
 Route::get("/terms-and-conditions", [PageController::class, "showTerms"])->name("terms");
+Route::get("/privacy-policy", [PageController::class, "showPrivacy"])->name("privacy");
 Route::get("/sitemap.xml", [SitemapController::class, "index"]);
 
 Route::prefix("/tools")
