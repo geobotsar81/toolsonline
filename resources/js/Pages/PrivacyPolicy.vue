@@ -3,7 +3,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import AppTools from "@/Shared/AppTools.vue";
 import AppLink from "@/Shared/AppLink.vue";
 import AppH1 from "@/Shared/AppH1.vue";
-import AppH2 from "@/Shared/AppH2.vue";
+import AppH3 from "@/Shared/AppH3.vue";
 import AppButtonPrimary from "@/Shared/AppButtonPrimary.vue";
 import AppSubtitle from "@/Shared/AppSubtitle.vue";
 
@@ -35,11 +35,11 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         <a href="https://www.termsfeed.com/privacy-policy-generator/">Free Privacy Policy Generator</a>.
                     </p>
 
-                    <AppH2>Consent</AppH2>
+                    <AppH3>Consent</AppH3>
 
                     <p class="py-2">By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
 
-                    <AppH2>Information we collect</AppH2>
+                    <AppH3>Information we collect</AppH3>
 
                     <p class="py-2">
                         The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your
@@ -53,7 +53,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         When you register for an Account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.
                     </p>
 
-                    <AppH2>How we use your information</AppH2>
+                    <AppH3>How we use your information</AppH3>
 
                     <p class="py-2">We use the information we collect in various ways, including to:</p>
 
@@ -70,7 +70,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         <li>Find and prevent fraud</li>
                     </ul>
 
-                    <AppH2>Log Files</AppH2>
+                    <AppH3>Log Files</AppH3>
 
                     <p class="py-2">
                         FreeOnlineTools follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting
@@ -79,7 +79,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.
                     </p>
 
-                    <AppH2>Cookies and Web Beacons</AppH2>
+                    <AppH3>Cookies and Web Beacons</AppH3>
 
                     <p class="py-2">
                         Like any other website, FreeOnlineTools uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the
@@ -100,7 +100,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         <a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>
                     </p>
 
-                    <AppH2>Advertising Partners Privacy Policies</AppH2>
+                    <AppH3>Advertising Partners Privacy Policies</AppH3>
 
                     <p class="py-2">You may consult this list to find the Privacy Policy for each of the advertising partners of FreeOnlineTools.</p>
 
@@ -112,7 +112,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
 
                     <p class="py-2">Note that FreeOnlineTools has no access to or control over these cookies that are used by third-party advertisers.</p>
 
-                    <AppH2>Third Party Privacy Policies</AppH2>
+                    <AppH3>Third Party Privacy Policies</AppH3>
 
                     <p class="py-2">
                         FreeOnlineTools's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad
@@ -124,7 +124,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         at the browsers' respective websites.
                     </p>
 
-                    <AppH2>CCPA Privacy Rights (Do Not Sell My Personal Information)</AppH2>
+                    <AppH3>CCPA Privacy Rights (Do Not Sell My Personal Information)</AppH3>
 
                     <p class="py-2">Under the CCPA, among other rights, California consumers have the right to:</p>
                     <p class="py-2">
@@ -134,7 +134,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                     <p class="py-2">Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</p>
                     <p class="py-2">If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
 
-                    <AppH2>GDPR Data Protection Rights</AppH2>
+                    <AppH3>GDPR Data Protection Rights</AppH3>
 
                     <p class="py-2">We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
                     <p class="py-2">The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</p>

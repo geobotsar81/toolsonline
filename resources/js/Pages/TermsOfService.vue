@@ -4,6 +4,7 @@ import AppTools from "@/Shared/AppTools.vue";
 import AppLink from "@/Shared/AppLink.vue";
 import AppH1 from "@/Shared/AppH1.vue";
 import AppH2 from "@/Shared/AppH2.vue";
+import AppH3 from "@/Shared/AppH3.vue";
 import AppButtonPrimary from "@/Shared/AppButtonPrimary.vue";
 import AppSubtitle from "@/Shared/AppSubtitle.vue";
 
@@ -40,7 +41,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         interchangeable and therefore as referring to same.
                     </p>
 
-                    <h3><strong>Cookies</strong></h3>
+                    <AppH3><strong>Cookies</strong></AppH3>
 
                     <p class="py-2">We employ the use of cookies. By accessing FreeOnlineTools, you agreed to use cookies in agreement with the FreeOnlineTools's Privacy Policy.</p>
 
@@ -49,7 +50,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.
                     </p>
 
-                    <h3><strong>License</strong></h3>
+                    <AppH3><strong>License</strong></AppH3>
 
                     <p class="py-2">
                         Unless otherwise stated, FreeOnlineTools and/or its licensors own the intellectual property rights for all material on FreeOnlineTools. All intellectual property rights are
@@ -95,7 +96,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         formats or media.
                     </p>
 
-                    <h3><strong>Hyperlinking to our Content</strong></h3>
+                    <AppH3><strong>Hyperlinking to our Content</strong></AppH3>
 
                     <p class="py-2">The following organizations may link to our Website without prior written approval:</p>
 
@@ -154,13 +155,13 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
 
                     <p class="py-2">No use of FreeOnlineTools's logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
 
-                    <h3><strong>iFrames</strong></h3>
+                    <AppH3><strong>iFrames</strong></AppH3>
 
                     <p class="py-2">
                         Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.
                     </p>
 
-                    <h3><strong>Content Liability</strong></h3>
+                    <AppH3><strong>Content Liability</strong></AppH3>
 
                     <p class="py-2">
                         We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s)
@@ -168,11 +169,11 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         of, any third party rights.
                     </p>
 
-                    <h3><strong>Your Privacy</strong></h3>
+                    <AppH3><strong>Your Privacy</strong></AppH3>
 
                     <p class="py-2">Please read Privacy Policy</p>
 
-                    <h3><strong>Reservation of Rights</strong></h3>
+                    <AppH3><strong>Reservation of Rights</strong></AppH3>
 
                     <p class="py-2">
                         We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We
@@ -180,7 +181,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         linking terms and conditions.
                     </p>
 
-                    <h3><strong>Removal of links from our website</strong></h3>
+                    <AppH3><strong>Removal of links from our website</strong></AppH3>
 
                     <p class="py-2">
                         If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not
@@ -192,7 +193,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
                         or that the material on the website is kept up to date.
                     </p>
 
-                    <h3><strong>Disclaimer</strong></h3>
+                    <AppH3><strong>Disclaimer</strong></AppH3>
 
                     <p class="py-2">
                         To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in
