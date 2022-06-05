@@ -421,10 +421,10 @@ FileETag None
 # Rewrite secure requests properly to prevent SSL cert warnings, e.g. prevent
 # https://www.example.com when your cert only allows https://secure.example.com
 
-# <IfModule mod_rewrite.c>
-#   RewriteCond %{SERVER_PORT} !^443
-#   RewriteRule ^ https://free-online-tools.com%{REQUEST_URI} [R=301,L]
-# </IfModule>
+ <IfModule mod_rewrite.c>
+   RewriteCond %{SERVER_PORT} !^443
+   RewriteRule ^ https://www.free-online-tools.com%{REQUEST_URI} [R=301,L]
+ </IfModule>
 
 
 # ----------------------------------------------------------------------
