@@ -148,10 +148,10 @@ const calculateBMI = _.debounce(() => {
                                         <AppInput name="bmiWeight" v-model="bmiWeight" />
                                         <span class="absolute font-bold top-8 right-4 text-gray-400"> {{ bmiUnit == "Metric Units" ? "kg" : "pounds" }}</span>
                                     </div>
-                                    <div class="col-span-12 mb-4">
+                                    <!--<div class="col-span-12 mb-4">
                                         <AppLabel label="Age" for="bmiAge" />
                                         <AppInput name="bmiAge" v-model="bmiAge" />
-                                    </div>
+                                    </div>-->
                                     <div class="col-span-6">
                                         <AppButtonPrimary extraClass="w-full" class="mt-6" v-if="!processing" @click="calculateBMI">CALCULATE</AppButtonPrimary>
                                         <AppLoader v-else class="mx-auto mt-8" />

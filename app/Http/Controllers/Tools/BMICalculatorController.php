@@ -39,7 +39,6 @@ class BMICalculatorController extends Controller
         $request->validate([
             "bmiHeight" => "required|numeric",
             "bmiWeight" => "required|numeric",
-            "bmiAge" => "required|numeric",
             "honeypot" => "present|max:0",
         ]);
 
@@ -47,7 +46,6 @@ class BMICalculatorController extends Controller
         $bmiHeight2 = $request->get("bmiHeight2");
         $bmiWeight = $request->get("bmiWeight");
         $bmiUnit = $request->get("bmiUnit");
-        $bmiAge = $request->get("bmiAge");
 
         if ($bmiUnit == "US Units") {
             $bmiHeight = (($bmiHeight * 12 + $bmiHeight2) * 2.54) / 100;
