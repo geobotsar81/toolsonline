@@ -100,7 +100,32 @@ const logout = () => {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="bg-white text-gray-600 text-left"></div>
+                                            <div class="bg-white text-gray-600 text-left">
+                                                <div class="font-bold text-lg">Random Generators</div>
+                                                <div class="w-32 ml-0"><hr class="mt-1 mb-2 border-t-2 border-t-red-500 border-dashed" /></div>
+                                                <ul class="inline-block">
+                                                    <li class="mt-1">
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.random-generator.random-number.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Random Number
+                                                        </AppLink>
+                                                    </li>
+                                                    <li class="mt-1">
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.random-generator.random-password.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Random Password
+                                                        </AppLink>
+                                                    </li>
+                                                    <li class="mt-1">
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.random-generator.random-word.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Random Word
+                                                        </AppLink>
+                                                    </li>
+                                                    <li class="mt-1">
+                                                        <AppLink extra-class="font-semibold" :url="route('tools.random-generator.random-sentence.show')"
+                                                            ><i class="far fa-angle-right text-sm"></i> Random Sentence
+                                                        </AppLink>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </template>
                                 </AppMegaMenu>

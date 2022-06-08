@@ -22,4 +22,7 @@ defineProps({
     <div class="col-span-12 md:col-span-6 lg:col-span-4">
         <AppCard :url="route('tools.text-counter.lines-counter.show')" icon="fal fa-abacus" title="Text Counters" content="Count lines, sentences, words or characters"> </AppCard>
     </div>
+    <div class="col-span-12 md:col-span-6 lg:col-span-4">
+        <AppCard :url="route('tools.random-generator.random-number.show')" icon="fal fa-random" title="Random Generators" content="Generate random numbers, passwords, words or sentences"> </AppCard>
+    </div>
 </template>

@@ -37,10 +37,13 @@ import AppH5 from "@/Shared/AppH5.vue";
                                 <AppLink :url="route('tools.lorem-ipsum.show')"><i class="far fa-angle-right text-sm"></i> Lorem Ipsum Generator</AppLink>
                             </li>
                             <li>
+                                <AppLink :url="route('tools.bmi-calculator.show')"><i class="far fa-angle-right text-sm"></i> BMI Calculator</AppLink>
+                            </li>
+                            <li>
                                 <AppLink :url="route('tools.case-converter.to-uppercase.show')"><i class="far fa-angle-right text-sm"></i> Case Converters</AppLink>
                             </li>
                             <li>
-                                <AppLink :url="route('tools.text-counter.lines-counter.show')"><i class="far fa-angle-right text-sm"></i> Text Counters</AppLink>
+                                <AppLink :url="route('tools.all')">All Tools</AppLink>
                             </li>
                         </ul>
                     </div>

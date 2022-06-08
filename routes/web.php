@@ -9,6 +9,7 @@ use App\Http\Controllers\Tools\TextCounterController;
 use App\Http\Controllers\Tools\BMICalculatorController;
 use App\Http\Controllers\Tools\CaseConverterController;
 use App\Http\Controllers\Tools\LoanCalculatorController;
+use App\Http\Controllers\Tools\RandomGeneratorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,20 @@ Route::prefix("/tools")
                 Route::get("/sentences-counter", [TextCounterController::class, "sentencesCounter"])->name("sentences-counter.show");
                 Route::get("/words-counter", [TextCounterController::class, "wordsCounter"])->name("words-counter.show");
                 Route::get("/characters-counter", [TextCounterController::class, "charactersCounters"])->name("characters-counter.show");
+            });
+
+        //Random Generators
+        Route::prefix("/random-generator")
+            ->name("random-generator.")
+            ->group(function () {
+                Route::get("/random-number-generator", [RandomGeneratorController::class, "randomNumber"])->name("random-number.show");
+                Route::get("/random-password-generator", [RandomGeneratorController::class, "randomPassword"])->name("random-password.show");
+                Route::get("/random-word-generator", [RandomGeneratorController::class, "randomWord"])->name("random-word.show");
+                Route::get("/random-sentence-generator", [RandomGeneratorController::class, "randomSentence"])->name("random-sentence.show");
+                Route::post("/random-number-generator", [RandomGeneratorController::class, "generate"])->name("random-number.generate");
+                Route::post("/random-password-generator", [RandomGeneratorController::class, "generate"])->name("random-password.generate");
+                Route::post("/random-word-generator", [RandomGeneratorController::class, "generate"])->name("random-word.generate");
+                Route::post("/random-sentence-generator", [RandomGeneratorController::class, "generate"])->name("random-sentence.generate");
             });
     });
 
