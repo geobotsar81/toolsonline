@@ -100,19 +100,14 @@ const generateOutput = _.debounce(() => {
                                     <AppButtonPrimary class="w-100" v-if="!processing" @click="generateOutput">GENERATE</AppButtonPrimary>
                                     <AppLoader v-else class="mx-auto mt-2" />
                                 </div>
-                                <div class="col-span-6 mt-6 md:col-span-3 text-left md:text-right">
+                                <div class="col-span-6 mt-6 md:col-span-6 text-left md:text-right">
                                     <AppButtonPrimary v-if="!processing" @click.prevent="useCopyText(output)"><i class="fas fa-copy mr-2"></i> COPY</AppButtonPrimary>
                                 </div>
                             </div>
                         </div>
-                        <div class="text-4xl text-gray-300">"</div>
                         <div class="text-xl text-gray-500">
-                            <template v-if="Array.isArray(output)">
-                                <p class="mb-4" v-for="(option, index) in output" :key="index">{{ option }}</p>
-                            </template>
-                            <span v-else>{{ output }}</span>
+                            <span>{{ output }}</span>
                         </div>
-                        <div class="text-4xl text-gray-300 text-right">"</div>
                     </AppWhiteContainer>
                 </div>
             </div>

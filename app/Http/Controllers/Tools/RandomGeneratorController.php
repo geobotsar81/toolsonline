@@ -111,7 +111,7 @@ class RandomGeneratorController extends Controller
     public function generate(Request $request): JsonResponse
     {
         $request->validate([
-            "outputLength" => "required|numeric",
+            "outputLength" => "required|numeric|max:9",
             "honeypot" => "present|max:0",
         ]);
 
@@ -121,7 +121,7 @@ class RandomGeneratorController extends Controller
         $outputType = $request["outputType"];
 
         if ($outputType == "random-number") {
-            $output = $faker->words($outputLength, true);
+            $output = $faker->randomNumber($outputLength, true);
         }
 
         if ($outputType == "sentences") {
