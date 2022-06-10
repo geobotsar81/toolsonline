@@ -48573,6 +48573,7 @@ function useCopyText(textToTransform) {
 
   try {
     if (Array.isArray(textToTransform)) {
+      test = "";
       textToTransform.forEach(function (element) {
         text = text + element + "\n\n";
       });
