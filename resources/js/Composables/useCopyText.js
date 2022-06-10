@@ -6,7 +6,7 @@ export function useCopyText(textToTransform) {
 
     try {
         if (Array.isArray(textToTransform)) {
-            test = "";
+            text = "";
             textToTransform.forEach((element) => {
                 text = text + element + "\n\n";
             });
