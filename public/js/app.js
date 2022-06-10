@@ -48569,14 +48569,15 @@ __webpack_require__.r(__webpack_exports__);
 
 function useCopyText(textToTransform) {
   var mainStore = (0,_Stores_mainStore__WEBPACK_IMPORTED_MODULE_0__.useMainStore)();
-  var text = textToTransform;
+  var text = "";
 
   try {
     if (Array.isArray(textToTransform)) {
-      text = "";
       textToTransform.forEach(function (element) {
         text = text + element + "\n\n";
       });
+    } else {
+      text = textToTransform;
     }
 
     navigator.clipboard.writeText(text);

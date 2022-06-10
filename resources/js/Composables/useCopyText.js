@@ -2,14 +2,15 @@ import { useMainStore } from "@/Stores/mainStore";
 
 export function useCopyText(textToTransform) {
     const mainStore = useMainStore();
-    let text = textToTransform;
+    let text = "";
 
     try {
         if (Array.isArray(textToTransform)) {
-            text = "";
             textToTransform.forEach((element) => {
                 text = text + element + "\n\n";
             });
+        } else {
+            text = textToTransform;
         }
 
         navigator.clipboard.writeText(text);
