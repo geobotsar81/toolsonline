@@ -9,6 +9,7 @@ import AppInput from "@/Shared/Form/AppInput.vue";
 import AppError from "@/Shared/Form/AppError.vue";
 import AppSelect from "@/Shared/Form/AppSelect.vue";
 import AppButtonPrimary from "@/Shared/AppButtonPrimary.vue";
+import AppCard from "@/Shared/AppCard";
 import AppLoader from "@/Shared/Form/AppLoader";
 
 import { useCopyText } from "@/Composables/useCopyText.js";
@@ -22,7 +23,7 @@ const pageMeta = computed(() => usePage().props.value.pageMeta);
 const relatedTools = computed(() => usePage().props.value.generators);
 const convertType = pageMeta.value.convertType;
 
-const outputLength = ref(5);
+const outputLength = ref(8);
 const output = ref("");
 const honeypot = ref(null);
 const errorMessage = ref(null);
@@ -93,7 +94,7 @@ const generateOutput = _.debounce(() => {
                             </div>
                             <div class="grid grid-cols-12 gap-x-2">
                                 <div class="col-span-6 md:col-span-3 mb-4 md:mb-0">
-                                    <AppLabel>Length(characters)</AppLabel>
+                                    <AppLabel>Length(<span v-if="convertType == 'random-sentence'">words</span><span v-else>characters</span>)</AppLabel>
                                     <AppInput placeholder="" name="outputLength" v-model="outputLength" />
                                 </div>
                                 <div class="col-span-6 mt-6 md:col-span-3 text-right md:text-left">
@@ -118,7 +119,7 @@ const generateOutput = _.debounce(() => {
                 </div>
                 <div class="grid grid-cols-12 gap-4 mt-8">
                     <template v-for="(tool, index) in relatedTools" :key="index">
-                        <div v-if="index != convertType" class="col-span-12 md:col-span-6 lg:col-span-4">
+                        <div v-if="tool.convertType != convertType" class="col-span-12 md:col-span-6 lg:col-span-4">
                             <AppCard :url="tool.url" :icon="tool.icon" :title="tool.title" :content="tool.description"> </AppCard>
                         </div>
                     </template>

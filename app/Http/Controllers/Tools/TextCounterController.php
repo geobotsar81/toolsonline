@@ -74,6 +74,7 @@ class TextCounterController extends Controller
             "description" => "Count number of lines in a given text",
             "url" => route("tools.text-counter.lines-counter.show"),
             "countType" => "lines",
+            "icon" => "fal fa-abacus",
         ];
 
         $counters["sentences"] = [
@@ -81,6 +82,7 @@ class TextCounterController extends Controller
             "description" => "Count number of sentences in a given text",
             "url" => route("tools.text-counter.sentences-counter.show"),
             "countType" => "sentences",
+            "icon" => "fal fa-abacus",
         ];
 
         $counters["words"] = [
@@ -88,6 +90,7 @@ class TextCounterController extends Controller
             "description" => "Count number of words in a given text",
             "url" => route("tools.text-counter.words-counter.show"),
             "countType" => "words",
+            "icon" => "fal fa-abacus",
         ];
 
         $counters["characters"] = [
@@ -95,6 +98,7 @@ class TextCounterController extends Controller
             "description" => "Count number of characters in a given text",
             "url" => route("tools.text-counter.characters-counter.show"),
             "countType" => "characters",
+            "icon" => "fal fa-abacus",
         ];
 
         return $counters;

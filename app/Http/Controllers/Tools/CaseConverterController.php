@@ -74,6 +74,7 @@ class CaseConverterController extends Controller
             "description" => "Convert text from uppercase to lowercase",
             "url" => route("tools.case-converter.to-lowercase.show"),
             "convertType" => "to-lowercase",
+            "icon" => "fal fa-text-size",
         ];
 
         $converters["to-uppercase"] = [
@@ -81,6 +82,7 @@ class CaseConverterController extends Controller
             "description" => "Convert text from lowercase to uppercase",
             "url" => route("tools.case-converter.to-uppercase.show"),
             "convertType" => "to-uppercase",
+            "icon" => "fal fa-text-size",
         ];
 
         $converters["to-sentencecase"] = [
@@ -88,6 +90,7 @@ class CaseConverterController extends Controller
             "description" => "Convert text to sentence case",
             "url" => route("tools.case-converter.to-sentencecase.show"),
             "convertType" => "to-sentencecase",
+            "icon" => "fal fa-text-size",
         ];
 
         $converters["to-wordcase"] = [
@@ -95,6 +98,7 @@ class CaseConverterController extends Controller
             "description" => "Capitalise each word",
             "url" => route("tools.case-converter.to-wordcase.show"),
             "convertType" => "to-wordcase",
+            "icon" => "fal fa-text-size",
         ];
 
         return $converters;
