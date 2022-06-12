@@ -44,6 +44,9 @@
         gtag('config', 'G-ZMED8XVFVT');
         </script>
 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1973975964782893"
+        crossorigin="anonymous"></script>
+
         <!-- Scripts -->
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>

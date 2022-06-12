@@ -19,7 +19,7 @@ class InternetSpeedTestController extends Controller
     {
         $page = [
             "title" => "Internet Speed Test",
-            "description" => "Use Speedtest on all your devices with our free desktop and mobile apps.",
+            "description" => "Perform a Bandwidth Test on all your devices with our free desktop and mobile apps.",
             "url" => route("tools.internet-speed-test.show"),
         ];
 
