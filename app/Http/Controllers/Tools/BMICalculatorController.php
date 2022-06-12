@@ -19,7 +19,7 @@ class BMICalculatorController extends Controller
     {
         $page = [
             "title" => "BMI Calculator",
-            "description" => "Determine your Body Mass Index.",
+            "description" => "Determine your Body Mass Index. For ages 20+.",
             "url" => route("tools.bmi-calculator.show"),
         ];
 

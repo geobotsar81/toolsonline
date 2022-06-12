@@ -16,6 +16,9 @@ defineProps({
         <AppCard :url="route('tools.lorem-ipsum.show')" icon="fal fa-align-left" title="Lorem Ipsum Generator" content="Generate dummy Lorem Ipsum text"> </AppCard>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-4">
+        <AppCard :url="route('tools.internet-speed-test.show')" icon="fal fa-router" title="Internet Speed Test" content="Calculate your internet speed with our free bandwidth test"> </AppCard>
+    </div>
+    <div class="col-span-12 md:col-span-6 lg:col-span-4">
         <AppCard :url="route('tools.case-converter.to-uppercase.show')" icon="fal fa-text-size" title="Case Converters" content="Convert your text to lowercase, uppercase, sentence case or word case">
         </AppCard>
     </div>
