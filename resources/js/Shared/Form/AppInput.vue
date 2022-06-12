@@ -3,7 +3,7 @@ import { onMounted, ref } from "vue";
 
 defineProps({
     modelValue: String,
-    placeHolder: String,
+    placeholder: String,
     name: String,
     icon: String,
 });
@@ -14,7 +14,7 @@ defineEmits(["update:modelValue"]);
     <div class="relative">
         <i v-if="icon" :class="icon" class="absolute top-4 right-4"></i>
         <input
-            :placeholder="placeHolder"
+            :placeholder="placeholder"
             :name="name"
             :id="name"
             :value="modelValue"

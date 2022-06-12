@@ -90,4 +90,28 @@
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
+    <url>
+        <loc>https://www.free-online-tools.com/tools/random-generator/random-number-generator</loc>
+        <lastmod>2022-06-12T06:05:08Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.free-online-tools.com/tools/random-generator/random-word-generator</loc>
+        <lastmod>2022-06-12T06:05:08Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.free-online-tools.com/tools/random-generator/random-sentence-generator</loc>
+        <lastmod>2022-06-12T06:05:08Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.free-online-tools.com/tools/random-generator/random-password-generator</loc>
+        <lastmod>2022-06-12T06:05:08Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
 </urlset>
