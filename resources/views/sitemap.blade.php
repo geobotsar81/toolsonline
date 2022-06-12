@@ -114,4 +114,10 @@
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
+    <url>
+        <loc>https://www.free-online-tools.com/tools/internet-speed-test</loc>
+        <lastmod>2022-06-12T06:05:08Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
 </urlset>

@@ -10,6 +10,7 @@ use App\Http\Controllers\Tools\BMICalculatorController;
 use App\Http\Controllers\Tools\CaseConverterController;
 use App\Http\Controllers\Tools\LoanCalculatorController;
 use App\Http\Controllers\Tools\RandomGeneratorController;
+use App\Http\Controllers\Tools\InternetSpeedTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +43,12 @@ Route::prefix("/tools")
         Route::get("/loan-calculator", [LoanCalculatorController::class, "show"])->name("loan-calculator.show");
         Route::post("/loan-calculator", [LoanCalculatorController::class, "calculate"])->name("loan-calculator.calculate");
 
-        //Loan Calculator
+        //BMI Calculator
         Route::get("/bmi-calculator", [BMICalculatorController::class, "show"])->name("bmi-calculator.show");
         Route::post("/bmi-calculator", [BMICalculatorController::class, "calculate"])->name("bmi-calculator.calculate");
+
+        //Internet Speed Test
+        Route::get("/internet-speed-test", [InternetSpeedTestController::class, "show"])->name("internet-speed-test.show");
 
         //Case Converters
         Route::prefix("/case-converter")
