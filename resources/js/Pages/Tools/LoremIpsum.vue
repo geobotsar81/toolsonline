@@ -63,7 +63,7 @@ const generateLoremIpsum = _.debounce(() => {
 </script>
 
 <template>
-    <AppLayout :title="pageMeta.title" :description="pageMeta.description" :url="pageMeta.url">
+    <AppLayout :include-adsense="true" :title="pageMeta.title" :description="pageMeta.description" :url="pageMeta.url">
         <div class="container py-8">
             <div class="text-center">
                 <AppH1>{{ pageMeta.title }}</AppH1>
