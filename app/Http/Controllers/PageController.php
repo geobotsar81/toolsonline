@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use Inertia\Response;
 use Illuminate\Http\Request;
 use App\Mail\ContactFormMail;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 
@@ -16,8 +17,12 @@ class PageController extends Controller
      *
      * @return Response
      */
-    public function showHome(): Response
+    public function showHome()
     {
+        if (URL::current() != env("APP_URL")) {
+            abort(404, "Page not found");
+        }
+
         $page = [
             "title" => "Welcome to FreeOnlineTools",
             "description" => "Find a wide range of calculators and tools for your everyday needs",
