@@ -19,9 +19,9 @@ class PageController extends Controller
      */
     public function showHome()
     {
-        if (URL::current() != env("APP_URL")) {
+        /*if (URL::current() != env("APP_URL")) {
             abort(404, "Page not found");
-        }
+        }*/
 
         $page = [
             "title" => "Welcome to FreeOnlineTools",
