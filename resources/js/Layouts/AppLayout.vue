@@ -56,7 +56,7 @@ const { toastShow, toastMessage, toastType } = storeToRefs(mainStore);
 
 <template>
     <div class="relative">
-        <TheHead :title="title" :description="description" :url="url"></TheHead>
+        <TheHead v-if="url != '404'" :title="title" :description="description" :url="url"></TheHead>
 
         <TheHeader></TheHeader>
 
