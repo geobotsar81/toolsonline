@@ -157,7 +157,7 @@ const logout = () => {
                                 </li>
                             </template>
                             <template v-else>
-                                <li class="inline-block px-3"><AppLink :url="route('login')"> Login </AppLink>/ <AppLink :url="route('register')"> Register </AppLink></li>
+                                <!-- <li class="inline-block px-3"><AppLink :url="route('login')"> Login </AppLink>/ <AppLink :url="route('register')"> Register </AppLink></li> -->
                             </template>
                         </ul>
                     </div>
