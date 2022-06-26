@@ -41,7 +41,7 @@ const currencyOptions = ["$", "€", "£"];
 const mainStore = useMainStore();
 
 onMounted(() => {
-    calculateLoan();
+    //calculateLoan();
 });
 
 const calculateLoan = _.debounce(() => {
@@ -145,6 +145,34 @@ const calculateLoan = _.debounce(() => {
                             </div>
                         </div>
                     </AppWhiteContainer>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 mt-12">
+                <div class="col-span-12">
+                    <div>
+                        <AppH2>Info on Loans</AppH2>
+                    </div>
+
+                    <div>
+                        <AppText>
+                            The cost of a loan depends on the type of loan, the lender, the market environment and your credit history and income. Borrowers with the best credit profile usually get
+                            the best interest rates. Before you shop for a loan, find out your credit score and look at your credit report to make sure it’s accurate.
+                        </AppText>
+                        <AppText>
+                            All loans are either secured or unsecured. A secured loan requires the borrower to put up an asset as collateral to secure the loan for the lender. An auto loan is an
+                            example of a secured loan. If you don’t make your car payments, the lender will repossess the car. An unsecured loan requires no collateral. Most personal loans are
+                            unsecured.
+                        </AppText>
+                        <AppText>
+                            While shopping for any loan, it’s a good idea to use a loan calculator. A calculator can help you narrow your search for a home or car by showing you how much you can
+                            afford to pay each month. It can help you compare loan costs and see how differences in interest rates can affect your payments, especially with mortgages.
+                        </AppText>
+                        <AppText>
+                            The right loan calculator will show you the total cost of a loan, expressed as the annual percentage rate, or APR. Loan calculators can answer a lot of questions and help
+                            you make good financial decisions.
+                        </AppText>
+                    </div>
                 </div>
             </div>
         </div>

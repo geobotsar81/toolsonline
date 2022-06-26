@@ -31,7 +31,7 @@ const options = ["words", "sentences", "paragraphs"];
 const mainStore = useMainStore();
 
 onMounted(() => {
-    generateLoremIpsum();
+    //generateLoremIpsum();
 });
 
 const generateLoremIpsum = _.debounce(() => {

@@ -33,7 +33,7 @@ const options = ["words", "sentences", "paragraphs"];
 const mainStore = useMainStore();
 
 onMounted(() => {
-    generateOutput();
+    //generateOutput();
 });
 
 const generateOutput = _.debounce(() => {

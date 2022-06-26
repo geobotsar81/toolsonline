@@ -51,7 +51,7 @@ watch(bmiUnit, (currentValue, oldValue) => {
 const mainStore = useMainStore();
 
 onMounted(() => {
-    calculateBMI();
+    //calculateBMI();
 });
 
 const calculateBMI = _.debounce(() => {
