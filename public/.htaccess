@@ -502,13 +502,10 @@ RewriteRule ^ index.php [L]
 
 # subdomains for certain parts of your website.
 
-# <IfModule mod_rewrite.c>
-
-# RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-
-# RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
-# </IfModule>
+  <IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+    RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+  </IfModule>
 
 # ----------------------------------------------------------------------
 
@@ -550,7 +547,9 @@ RewriteRule ^ index.php [L]
 
 # RewriteCond %{SERVER_PORT} !^443
 
-# RewriteRule ^ https://www.free-online-tools.com%{REQUEST_URI} [R=301,L] #</IfModule>
+# RewriteRule ^ https://www.free-online-tools.com%{REQUEST_URI} [R=301,L]
+
+# </IfModule>
 
 # ----------------------------------------------------------------------
 
